@@ -1,0 +1,241 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2017.3.7)  7 MAR 2017 17:41
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**files.tex
+(./files.tex
+LaTeX2e <2016/03/31> patch level 3
+Babel <3.9r> and hyphenation patterns for 3 language(s) loaded.
+! Undefined control sequence.
+l.1 \section
+            {File List}
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \section{F
+              ile List}
+? 
+Missing character: There is no F in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+! Undefined control sequence.
+l.2 ... documented files with brief descriptions\+
+                                                  :\begin{DoxyCompactList}
+? 
+Missing character: There is no : in font nullfont!
+
+! LaTeX Error: Environment DoxyCompactList undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 ...rief descriptions\+:\begin{DoxyCompactList}
+                                                  
+? 
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--3
+[]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \item\contentsline
+                      {section}{\hyperlink{compileBST_8c}{compile\+B\+S\+T.\...
+
+? 
+! Undefined control sequence.
+l.3 \item\contentsline{section}{\hyperlink
+                                          {compileBST_8c}{compile\+B\+S\+T.\...
+
+? 
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no T in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.3 ...ontentsline{section}{\hyperlink{compileBST_
+                                                  8c}{compile\+B\+S\+T.\+c} ...
+
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+! Extra }, or forgotten $.
+l.3 ...entsline{section}{\hyperlink{compileBST_8c}
+                                                  {compile\+B\+S\+T.\+c} \\*...
+
+? 
+! Undefined control sequence.
+l.3 ...ection}{\hyperlink{compileBST_8c}{compile\+
+                                                  B\+S\+T.\+c} \\*This imple...
+
+? 
+! Undefined control sequence.
+l.3 ...ion}{\hyperlink{compileBST_8c}{compile\+B\+
+                                                  S\+T.\+c} \\*This implemen...
+
+? 
+! Undefined control sequence.
+l.3 ...}{\hyperlink{compileBST_8c}{compile\+B\+S\+
+                                                  T.\+c} \\*This implements ...
+
+? 
+! Undefined control sequence.
+l.3 ...yperlink{compileBST_8c}{compile\+B\+S\+T.\+
+                                                  c} \\*This implements the ...
+
+? 
+! Undefined control sequence.
+l.3 ...B\+S\+T.\+c} \\*This implements the apply\+
+                                                  Patch program }{\pageref{c...
+
+? 
+! Extra }, or forgotten $.
+l.3 ...*This implements the apply\+Patch program }
+                                                  {\pageref{compileBST_8c}}{}
+? 
+! Undefined control sequence.
+<write> ...rence `compileBST_8c' on page \thepage 
+                                                  \space undefined\on@line .
+l.3 ...ly\+Patch program }{\pageref{compileBST_8c}
+                                                  }{}
+? 
+
+LaTeX Warning: Reference `compileBST_8c' on page  undefined on input line 3.
+
+
+! LaTeX Error: \begin{document} ended by \end{DoxyCompactList}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \end{DoxyCompactList}
+                         
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4 \end{DoxyCompactList}
+                         
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.4 \end{DoxyCompactList}
+                         
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.4 \end{DoxyCompactList}
+                         
+? 
+)
+*
+
+Overfull \hbox (71.6594pt too wide) in paragraph at lines 3--0
+[]\OML/cmm/m/it/10 c[] 
+ []
+
+
+Overfull \hbox (188.08504pt too wide) in paragraph at lines 3--0
+\OML/cmm/m/it/10 ThisimplementstheapplyPatchprogram[][]$ 
+ []
+
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+! Emergency stop.
+<*> 
+    
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 14 strings out of 494946
+ 236 string characters out of 6181059
+ 45292 words of memory out of 5000000
+ 3408 multiletter control sequences out of 15000+600000
+ 3948 words of font info for 15 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 18i,5n,14p,176b,138s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.
