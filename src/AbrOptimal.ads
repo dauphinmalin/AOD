@@ -1,14 +1,14 @@
 with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
 with dico; use dico;
 with Code; use Code;
--- paquetage representant un arbre de Huffman de caracteres
+-- paquetage representant un ABR optimal de caracteres
 
-package Huffman is
+package Arbre_Optimal is
 
 	type Arbre is private;
 
-	type Arbre_Huffman is record
-		-- l'arbre de Huffman proprement dit
+	type Arbre_Optimal is record
+		-- l'arbre optimal proprement dit
 		A : Arbre;
 		-- autres infos utiles: nb total de caracteres lus, ...
 		Nb_Total_Caracteres : Natural;
@@ -19,32 +19,32 @@ package Huffman is
 	-- garantit: en sortie toute la memoire a ete libere, et A = null.
 	function creer_arbre(C: Character;i:Integer) return Arbre;
 	procedure Libere_Arbre(A: in out Arbre);
-	procedure Libere(H : in out Arbre_Huffman);
+	procedure Libere(H : in out Arbre_Optimal);
 	procedure Affiche_Arbre(A:in Arbre);
-	procedure Affiche(H : in Arbre_Huffman);
+	procedure Affiche(H : in Arbre_Optimal);
 
 
-	-- Cree un arbre de Huffman a partir d'un fichier texte
+	-- Cree un arbre optimal a partir d'un fichier texte
 	-- Cette function lit le fichier et compte le nb d'occurences des
 	-- differents caracteres presents, puis genere l'arbre correspondant
 	-- et le retourne.
-procedure Fusion_Arbre(moins_prio1: in out Arbre_Huffman;moins_prio2: in Arbre_Huffman) ;
+procedure Fusion_Arbre(moins_prio1: in out Arbre_Optimal;moins_prio2: in Arbre_Optimal) ;
 
-	function Cree_Huffman(Nom_Fichier : in String)
-		return Arbre_Huffman;
+	function Cree_Optimal(Nom_Fichier : in String)
+		return Arbre_Optimal;
 
 	-- Stocke un arbre dans un flux ouvert en ecriture
 	-- Le format de stockage est celui decrit dans le sujet
 	-- Retourne le nb d'octets ecrits dans le flux (pour les stats)
 	procedure Ecrit_Arbre(A:in Arbre;Flux : Ada.Streams.Stream_IO.Stream_Access);
-	function Ecrit_Huffman(H : in Arbre_Huffman;
+	function Ecrit_Optimal(H : in Arbre_Optimal;
 	                        Flux : Ada.Streams.Stream_IO.Stream_Access)
 		return Positive;
 
 	-- Lit un arbre stocke dans un flux ouvert en lecture
 	-- Le format de stockage est celui decrit dans le sujet
-	function Lit_Huffman(Flux : Ada.Streams.Stream_IO.Stream_Access)
-		return Arbre_Huffman;
+	function Lit_Optimal(Flux : Ada.Streams.Stream_IO.Stream_Access)
+		return Arbre_Optimal;
 
 
 	-- Retourne un dictionnaire contenant les caracteres presents
@@ -52,7 +52,7 @@ procedure Fusion_Arbre(moins_prio1: in out Arbre_Huffman;moins_prio2: in Arbre_H
 	-- de l'arbre
 
 	procedure Genere_Dic_Arbre(A: in Arbre; D:in out Dico_Caracteres;C: in out Code_Binaire) ;
-	function Genere_Dictionnaire(H :  Arbre_Huffman) return Dico_Caracteres;
+	function Genere_Dictionnaire(H :  Arbre_Optimal) return Dico_Caracteres;
 
 
 
@@ -73,9 +73,9 @@ procedure Fusion_Arbre(moins_prio1: in out Arbre_Huffman;moins_prio2: in Arbre_H
 
 private
 
-	-- type Noeud prive: a definir dans le body du package, huffman.adb
+	-- type Noeud prive: a definir dans le body du package, AbrOptimal.adb
 	type Noeud;
 
 	type Arbre is Access Noeud;
 
-end Huffman;
+end Arbre_Optimal;

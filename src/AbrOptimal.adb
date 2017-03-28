@@ -6,7 +6,7 @@ with file_priorite;
 -- a l'aide de flux Ada.
 
 with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
-package body Huffman is
+package body Arbre_Optimal is
 
   type Noeud is record
     valeur: Character;
@@ -22,9 +22,9 @@ package body Huffman is
 
   procedure Free is new Ada.Unchecked_Deallocation (Noeud,Arbre);
 
-  package File_Priorite_Arbre_Huffman is
-    new File_Priorite(Arbre_Huffman,Integer,"=","<");
-    use File_Priorite_Arbre_Huffman;
+  package File_Priorite_Arbre_Optimal is
+    new File_Priorite(Arbre_Optimal,Integer,"=","<");
+    use File_Priorite_Arbre_Optimal;
 
     type Octet is new Integer range 0 .. 255;
     for Octet'Size use 8; -- permet d'utiliser Octet'Input et Octet'Output,
@@ -53,7 +53,7 @@ package body Huffman is
       free(A);
     end Libere_Arbre;
 
-    procedure Libere(H: in out Arbre_Huffman) is
+    procedure Libere(H: in out Arbre_Optimal) is
     begin
       Libere_Arbre(H.A);
     end Libere;
@@ -73,7 +73,7 @@ package body Huffman is
     end Affiche_Arbre;
 
 
-    procedure Affiche(H:in Arbre_Huffman) is
+    procedure Affiche(H:in Arbre_Optimal) is
 
     begin
       Put_Line("");
@@ -84,7 +84,7 @@ package body Huffman is
 
     -- Lit dans un fichier ouvert en lecture, et affiche les valeurs lues
 
-    procedure Fusion_Arbre(moins_prio1: in out Arbre_Huffman;moins_prio2: in Arbre_Huffman) is -- permet de créer l'arbre composé des deux branches d'ordre de priorité connu
+    procedure Fusion_Arbre(moins_prio1: in out Arbre_Optimal;moins_prio2: in Arbre_Optimal) is -- permet de créer l'arbre composé des deux branches d'ordre de priorité connu
       A:Arbre:=new Noeud;
 
     begin
@@ -97,15 +97,15 @@ package body Huffman is
 
 
 
-    function Cree_Huffman(Nom_Fichier : in String) return Arbre_Huffman is
+    function Cree_Optimal(Nom_Fichier : in String) return Arbre_Optimal is
       Fichier : Ada.Streams.Stream_IO.File_Type;
       Flux : Ada.Streams.Stream_IO.Stream_Access;
       C : Character;
       T : array(0..256) of cellule; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
       F:File_Prio:=Cree_File(256);    --  file priorite
-      Huffman: Arbre_Huffman;
-      moins_prio1 : Arbre_Huffman;
-      moins_prio2 : Arbre_Huffman;          -- elements intermediaires pour la fusion
+      Optimal: Arbre_Optimal;
+      moins_prio1 : Arbre_Optimal;
+      moins_prio2 : Arbre_Optimal;          -- elements intermediaires pour la fusion
       prio1 : Integer;      --elements facilitants la fusion avec l'utilisations de fonctions de file_priorite
       prio2: Integer;
     begin
@@ -139,10 +139,10 @@ package body Huffman is
 
       for j in 0..256 loop -- on crée la file_priorite à partir du tableau nous nous sommes rendus compte trop tard
         if T(j).Prio>0 then --que l'utilisation du type tableau dès le départ s'avairait plus malin dans ce cas
-          huffman.A:=creer_arbre(T(j).Data,T(j).Prio);
+          Optimal.A:=creer_arbre(T(j).Data,T(j).Prio);
 
-          huffman.Nb_Total_Caracteres:=T(j).Prio;
-          Insere(F,huffman,T(j).Prio);-- on insere que ceux dont la priorite est superieure à 0 cad ils sont présents
+          Optimal.Nb_Total_Caracteres:=T(j).Prio;
+          Insere(F,Optimal,T(j).Prio);-- on insere que ceux dont la priorite est superieure à 0 cad ils sont présents
         end if;
       end loop;
       while(Get_Taille(F)>1) loop   -- on crée l'abre en supprimant sortants les deux arbres les plus prioritaires et en inserant l'arbre fusionné.
@@ -153,7 +153,7 @@ package body Huffman is
     end loop;
     Supprime(F,moins_prio1,prio1);
     return moins_prio1;
-  end Cree_Huffman;
+  end Cree_Optimal;
   -- Stocke un arbre dans un flux ouvert en ecriture
   -- Le format de stockage est celui decrit dans le sujet
   -- Retourne le nb d'octets ecrits dans le flux (pour les stats)
@@ -176,7 +176,7 @@ begin
 end Ecrit_Arbre;
 
 
-function Ecrit_Huffman(H : in Arbre_Huffman;Flux : Ada.Streams.Stream_IO.Stream_Access)
+function Ecrit_Optimal(H : in Arbre_Optimal;Flux : Ada.Streams.Stream_IO.Stream_Access)
 return Positive is
 begin
 
@@ -184,19 +184,19 @@ begin
   Put("Ecriture des donnees: ");
   Ecrit_Arbre(H.A,Flux);
   return 1;
-end Ecrit_Huffman;
+end Ecrit_Optimal;
 
 --Lit un arbre stocke dans un flux ouvert en lecture
 -- Le format de stockage est celui decrit dans le sujet
-function Lit_Huffman(Flux : Ada.Streams.Stream_IO.Stream_Access)
-return Arbre_Huffman is
+function Lit_Optimal(Flux : Ada.Streams.Stream_IO.Stream_Access)
+return Arbre_Optimal is
   Nb_caractere:Natural;
   T : array(0..256) of cellule;     -- tableau dont le nombre de case correspont à la representation décimale des Characters
   i:Natural:=0;
   F:File_Prio:=Cree_File(256);    --file prioritaire pour la creation de l'arbre
   C:Character;
   Prio:Integer;
-  huffman,moins_prio1,moins_prio2 : Arbre_Huffman;      --elements intermedaires pour la fusion des arbres
+  Optimal,moins_prio1,moins_prio2 : Arbre_Optimal;      --elements intermedaires pour la fusion des arbres
   prio1,prio2:Integer;                  -- elements facilitants l'utilisation des fonctions de file_priorite
 begin
   for j in 0..256 loop
@@ -212,10 +212,10 @@ begin
   end loop;
   for j in 0..256 loop -- on crée la file_priorite à partir du tableau nous nous sommes rendus compte trop tard
     if T(j).Prio>0 then --que l'utilisation du type tableau dès le départ s'avairait plus malin dans ce cas
-      huffman.A:=creer_arbre(T(j).Data,T(j).Prio);
+      Optimal.A:=creer_arbre(T(j).Data,T(j).Prio);
 
-      huffman.Nb_Total_Caracteres:=T(j).Prio;
-      Insere(F,huffman,T(j).Prio); -- on insere que ceux dont la priorite est superieure à 0 cad ils sont présents
+      Optimal.Nb_Total_Caracteres:=T(j).Prio;
+      Insere(F,Optimal,T(j).Prio); -- on insere que ceux dont la priorite est superieure à 0 cad ils sont présents
     end if;
   end loop;
 
@@ -228,7 +228,7 @@ begin
   end loop;
   Supprime(F,moins_prio1,prio1);
   return moins_prio1;
-end Lit_Huffman;
+end Lit_Optimal;
 
 
 procedure Genere_Dic_Arbre(A: in Arbre; D:in out Dico_Caracteres;C:in out Code_Binaire) is
@@ -256,7 +256,7 @@ end Genere_Dic_Arbre;
 -- Retourne un dictionnaire contenant les caracteres presents
 -- dans l'arbre et leur code binaire (evite les parcours multiples)
 -- de l'arbre
-function Genere_Dictionnaire(H : in Arbre_Huffman) return Dico_Caracteres is
+function Genere_Dictionnaire(H : in Arbre_Optimal) return Dico_Caracteres is
   D:Dico_Caracteres:=Cree_Dico;
   C: Code_Binaire:=Cree_Code;
 
@@ -286,4 +286,4 @@ end Genere_Dictionnaire;
 --  Caractere : out Character);
 
 
-end Huffman;
+end Arbre_Optimal;
