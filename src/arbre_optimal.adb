@@ -9,15 +9,10 @@ with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
 package body Arbre_Optimal is
 
   type Noeud is record
-    valeur: Character;
-    occurence:Integer;
+    valeur: Integer;
+    proba : Flaot;
     filsgauche: Arbre;
     filsdroit : Arbre;
-  end record;
-
-  type cellule is record
-    Data: Character;
-    Prio: Integer;
   end record;
 
   procedure Free is new Ada.Unchecked_Deallocation (Noeud,Arbre);
@@ -31,11 +26,11 @@ package body Arbre_Optimal is
     -- pour lire/ecrire un octet dans un flux
 
 
-    function creer_arbre(C: Character;i: Integer) return Arbre is       --Cree un Arbre
+    function creer_arbre(C: Character;p: Float) return Arbre is       --Cree un Arbre
       A:Arbre:=new Noeud;
     begin
       A.valeur:=C;
-      A.occurence:=i;
+      A.proba:=p;
       A.filsgauche:=NULL;
       A.filsdroit:=NULL;
       return A;
@@ -53,9 +48,9 @@ package body Arbre_Optimal is
       free(A);
     end Libere_Arbre;
 
-    procedure Libere(H: in out Arbre_Optimal) is
+    procedure Libere(AbrO: in out Arbre_Optimal) is
     begin
-      Libere_Arbre(H.A);
+      Libere_Arbre(AbrO.A);
     end Libere;
 
     procedure Affiche_Arbre(A:in Arbre) is      -- fonction recursive pour parcourir l'arbre Affiche a juste à l'appeler;
@@ -67,50 +62,41 @@ package body Arbre_Optimal is
         Affiche_Arbre(A.filsgauche);
       end if;
       if A.filsgauche=NULL and A.filsdroit=NULL then
-        Put(A.valeur);
-        Put(Integer'Image(A.occurence));
+        Put(Integer'Image(A.valeur));
+        Put(Integer'Image(A.proba));
       end if ;
     end Affiche_Arbre;
 
 
-    procedure Affiche(H:in Arbre_Optimal) is
+    procedure Affiche(AbrO:in Arbre_Optimal) is
 
     begin
       Put_Line("");
-      Affiche_Arbre(H.A);
+      Affiche_Arbre(AbrO.A);
       Put_Line("");
     end Affiche;
 
 
     -- Lit dans un fichier ouvert en lecture, et affiche les valeurs lues
 
-    procedure Fusion_Arbre(moins_prio1: in out Arbre_Optimal;moins_prio2: in Arbre_Optimal) is -- permet de créer l'arbre composé des deux branches d'ordre de priorité connu
-      A:Arbre:=new Noeud;
-
-    begin
-      A.filsdroit:=moins_prio1.A;
-      A.filsgauche:=moins_prio2.A;
-      moins_prio1.Nb_Total_Caracteres:=moins_prio2.Nb_Total_Caracteres+moins_prio1.Nb_Total_Caracteres; -- on met à jour le poids de ce nouvel arbre_hoffmann
-      moins_prio1.A:=A;
-    end Fusion_Arbre;
-
-
-
-
-    function Cree_Optimal(Nom_Fichier : in String) return Arbre_Optimal is
+    function Mise_En_Place_Optimal(Nom_Fichier : in String, n : Integer) return Arbre_Optimal is
       Fichier : Ada.Streams.Stream_IO.File_Type;
       Flux : Ada.Streams.Stream_IO.Stream_Access;
-      C : Character;
-      T : array(0..256) of cellule; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
-      F:File_Prio:=Cree_File(256);    --  file priorite
-      Optimal: Arbre_Optimal;
-      moins_prio1 : Arbre_Optimal;
-      moins_prio2 : Arbre_Optimal;          -- elements intermediaires pour la fusion
-      prio1 : Integer;      --elements facilitants la fusion avec l'utilisations de fonctions de file_priorite
-      prio2: Integer;
+      S : Integer; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
+      P : array(0..n-1) of Integer; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
+      C : array(1..n,1..n) of Float ;
+      W : array(1..n,1..n) of Float ;
+      R : array(1..n,1..n) of Float ;
+      j : Integer;
+      Cmin : Integer;
+      m := Integer;
     begin
-      for j in 0..256 loop
-        T(j).Prio:=0;
+      S := 0;
+      I := 0;
+      for j in 0..n-1 loop
+        P(j):=0;
+        C(j,j):=0;
+        W(j,j):=0;
       end loop;
       Open(Fichier, In_File, Nom_Fichier);
       Flux := Stream(Fichier);
@@ -122,38 +108,36 @@ package body Arbre_Optimal is
       --Put(Integer(Octet'Input(Flux))); -- cast necessaire Octet -> Integer
 
       -- lecture tant qu'il reste des caracteres
-      while not End_Of_File(Fichier) loop -- on lit le fichier
-        C := Character'Input(Flux);
-      --  Put(", "); Put(C);
-        T(Character'Pos(C)).Prio:=T(Character'Pos(C)).Prio+1;
-        T(Character'Pos(C)).Data:=C;
-
-
+      while not End_Of_File(Fichier) or I <= n-1 loop -- on lit le fichier
+        I := I + 1; --indice correspondant à l'entiers
+        P(I):=Integer'Input(Flux);; -- Ajout de la proba dans le tableau
+        S := S + P(I); -- MaJ de la somme des proba
       end loop;
-
-
 
       Close(Fichier);
       Put_Line("fermeture du fichier");
 
-
-      for j in 0..256 loop -- on crée la file_priorite à partir du tableau nous nous sommes rendus compte trop tard
-        if T(j).Prio>0 then --que l'utilisation du type tableau dès le départ s'avairait plus malin dans ce cas
-          Optimal.A:=creer_arbre(T(j).Data,T(j).Prio);
-
-          Optimal.Nb_Total_Caracteres:=T(j).Prio;
-          Insere(F,Optimal,T(j).Prio);-- on insere que ceux dont la priorite est superieure à 0 cad ils sont présents
-        end if;
+      for l in 0..n-1 loop
+        P(j):=P(j)/S;
       end loop;
-      while(Get_Taille(F)>1) loop   -- on crée l'abre en supprimant sortants les deux arbres les plus prioritaires et en inserant l'arbre fusionné.
-      Supprime(F,moins_prio1,prio1);
-      Supprime(F,moins_prio2,prio2);
-      Fusion_Arbre(moins_prio1,moins_prio2);
-      Insere(F,moins_prio1,moins_prio1.Nb_Total_Caracteres);
-    end loop;
-    Supprime(F,moins_prio1,prio1);
-    return moins_prio1;
-  end Cree_Optimal;
+
+      for l in 1..n loop
+        for i in 0..n-1 loop
+          j:= i+l;
+          W(i,j):=W(i,j-1)+P(j);
+          Cmin := C(i,j);
+          for k in i..j loop
+            if(C(i,k-1)+C(k,j) < Cmin) loop
+              Cmin := C(i,k-1)+C(k,j);
+              m := k;
+            end loop;
+          C(i,j):=W(i,j)+C(i,m-1)+C(m,j);
+          R(i,j):= m;
+          end loop;
+        end loop;
+      end loop;
+  end Mise_En_Place_Optimal;
+
   -- Stocke un arbre dans un flux ouvert en ecriture
   -- Le format de stockage est celui decrit dans le sujet
   -- Retourne le nb d'octets ecrits dans le flux (pour les stats)
@@ -176,13 +160,13 @@ begin
 end Ecrit_Arbre;
 
 
-function Ecrit_Optimal(H : in Arbre_Optimal;Flux : Ada.Streams.Stream_IO.Stream_Access)
+function Ecrit_Optimal(AbrO : in Arbre_Optimal;Flux : Ada.Streams.Stream_IO.Stream_Access)
 return Positive is
 begin
 
-  Natural'Output(Flux,H.Nb_Total_Caracteres);   -- permet de savoir quand il on a atteint la fin de l'abre lors de l'ouverture du fichier compressé.
+  Natural'Output(Flux,AbrO.Nb_Total_Caracteres);   -- permet de savoir quand il on a atteint la fin de l'abre lors de l'ouverture du fichier compressé.
   Put("Ecriture des donnees: ");
-  Ecrit_Arbre(H.A,Flux);
+  Ecrit_Arbre(AbrO.A,Flux);
   return 1;
 end Ecrit_Optimal;
 
@@ -229,47 +213,6 @@ begin
   Supprime(F,moins_prio1,prio1);
   return moins_prio1;
 end Lit_Optimal;
-
-
-procedure Genere_Dic_Arbre(A: in Arbre; D:in out Dico_Caracteres;C:in out Code_Binaire) is
-  C1:Code_Binaire:=Cree_Code(C); -- fonction recursive pour le parcours de l'arbre
-begin
-
-  if A.filsdroit/=NULL then
-    Ajoute_Apres(ZERO,C);
-    Genere_Dic_Arbre(A.filsdroit,D,C);
-  end if;
-  if A.filsgauche/=NULL then
-
-    Ajoute_Apres(UN,C1);
-    Genere_Dic_Arbre(A.filsgauche,D,C1);
-  end if;
-
-
-  if A.filsgauche=NULL and A.filsdroit=NULL then    -- les données ne sont présentes que sur les feuilles
-
-    Set_Code(A.valeur,C,D);
-    Libere_Code(C1);
-  end if ;
-end Genere_Dic_Arbre;
-
--- Retourne un dictionnaire contenant les caracteres presents
--- dans l'arbre et leur code binaire (evite les parcours multiples)
--- de l'arbre
-function Genere_Dictionnaire(H : in Arbre_Optimal) return Dico_Caracteres is
-  D:Dico_Caracteres:=Cree_Dico;
-  C: Code_Binaire:=Cree_Code;
-
-
-begin
-  Put("a");       -- on a juste a appeler la fonction recursive
-  Genere_Dic_Arbre(H.A,D,C);
-  return D;
-
-end Genere_Dictionnaire;
-
-
-
 
 ------ Parcours de l'arbre (decodage)
 
