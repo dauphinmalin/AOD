@@ -95,8 +95,10 @@ type T_Int is array(0..n-1,0..n-1) of Integer;
   end Construit_Abr_Optimal;
 
 R : T_Int; --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
-
+A : Arbre;
 begin
 
   Mise_En_Place_Optimal(Argument(1), n, R);
+  A := Construit_Abr_Optimal(0,n-1,R);
+  
 end main;
