@@ -6,7 +6,7 @@ procedure main is
 n : Integer:= Integer'Value(Argument(2));
 type T_Int is array(0..n-1,0..n-1) of Integer;
 
-  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is
+  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
     Fichier : Ada.Streams.Stream_IO.File_Type;
     Flux : Ada.Streams.Stream_IO.Stream_Access;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
