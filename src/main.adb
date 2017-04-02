@@ -17,7 +17,7 @@ type T_Int is array(0..n-1,0..n-1) of Integer;
     j : Integer;
     Cmin : Float; -- Cmin
     m : Integer; -- valeur de k minimisant C(i,k-1)+C(k,j)
-    I : Integer;
+    I : Integer; -- Valeur de l'entier (valeur sur un noeud)
     test1 : Integer;
   begin
     m := -1;
