@@ -11,12 +11,12 @@ type T_Int is array(0..n-1,0..n-1) of Integer;
     Flux : Ada.Streams.Stream_IO.Stream_Access;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
     P : array(0..n-1) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
-    C : array(0..n-1,0..n-1) of Float ;
-    W : array(0..n-1,0..n-1) of Float ;
-    TEST : array(0..4) of Integer;
+    C : array(0..n-1,0..n-1) of Float ; -- C(i,j) = cout de l arbre T(i,j)
+    W : array(0..n-1,0..n-1) of Float ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
+    TEST : array(0..4) of Integer; -- TEST permet de tester sans lecture de fichier
     j : Integer;
-    Cmin : Float;
-    m : Integer;
+    Cmin : Float; -- Cmin
+    m : Integer; -- valeur de k minimisant C(i,k-1)+C(k,j)
     I : Integer;
     test1 : Integer;
   begin
