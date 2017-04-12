@@ -5,8 +5,8 @@ package Arbre_Optimal is
 
 	type Arbre is private;
 
-  type T_Int is array(<>,<>) of Integer;
-	
+  --type T_Int is array(<>,<>) of Integer;
+
 	type Arbre_Optimal is record
 		-- l'arbre optimal proprement dit
 		A : Arbre;
@@ -42,7 +42,6 @@ package Arbre_Optimal is
 												Flux : Ada.Streams.Stream_IO.Stream_Access)
 		return Positive;
 
-		function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int) return Arbre ;
 	-- Lit un arbre stocke dans un flux ouvert en lecture
 	-- Le format de stockage est celui decrit dans le sujet
 	--function Lit_Optimal(Flux : Ada.Streams.Stream_IO.Stream_Access)

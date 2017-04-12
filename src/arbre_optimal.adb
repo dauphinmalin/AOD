@@ -111,19 +111,19 @@ begin
   return 1;
 end Ecrit_Optimal;
 
-function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int) return Arbre is
-  A : Arbre ;
-begin
-  A := creer_arbre(R(i,j));
-  Affiche_Arbre(A);
-  if(i < R(i,j)-1) then
-    A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
-  end if;
-  if(R(i,j)<j) then
-    A.filsdroit:= Construit_Abr_Optimal(R(i,j),j,R);
-  end if;
-  return A;
-end Construit_Abr_Optimal;
+--function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int) return Arbre is
+--  A : Arbre ;
+--begin
+--  A := creer_arbre(R(i,j));
+--  Affiche_Arbre(A);
+--  if(i < R(i,j)-1) then
+--    A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
+--  end if;
+--  if(R(i,j)<j) then
+--    A.filsdroit:= Construit_Abr_Optimal(R(i,j),j,R);
+--  end if;
+--  return A;
+--end Construit_Abr_Optimal;
 
 --Lit un arbre stocke dans un flux ouvert en lecture
 -- Le format de stockage est celui decrit dans le sujet
