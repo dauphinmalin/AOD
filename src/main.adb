@@ -3,12 +3,19 @@ use Ada.Text_IO, Ada.Integer_Text_Io, arbre_optimal, Ada.Streams.Stream_IO, Ada.
 
 procedure main is
 
-n : Integer:= Integer'Value(Argument(2));
+n : Integer:= Integer'Value(Argument(1));
 type T_Int is array(0..n-1,0..n-1) of Integer;
+
+procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out Stream_Access; Nom_Fichier: in String ) is
+  begin
+      Open(Fichier,In_File,Nom_Fichier);
+      Flux := Stream(Fichier);
+  end Open_fichier;
 
   procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
     Fichier : Ada.Streams.Stream_IO.File_Type;
-    Flux : Ada.Streams.Stream_IO.Stream_Access;
+    Flux : Stream_Access;
+    data_read : Integer;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
     P : array(0..n-1) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
     C : array(0..n-1,0..n-1) of Float ; -- C(i,j) = cout de l arbre T(i,j)
@@ -29,31 +36,32 @@ type T_Int is array(0..n-1,0..n-1) of Integer;
       end loop;
     end loop;
     for j in 0..n-1 loop
-      TEST(j):=j+1;
       P(j):=0.0;
       C(j,j):=0.0;
       W(j,j):=0.0;
       R(j,j):=j;
     end loop;
-    --Open(Fichier, In_File, Nom_Fichier);
-    --Flux := Stream(Fichier);
+    Open_Fichier(Fichier,Flux,Nom_Fichier);
+    Flux := Stream(Fichier);
+
 
     --Put("Lecture des donnees: ");
 
     --while not End_Of_File(Fichier) or I <= n-1 loop -- on lit le fichier
-    while I <= n-1 loop -- on lit le fichier
-      --Put(I);
+    while I <= n-1 and End_Of_File(Fichier) loop
+      Integer'Read(Flux,data_read);
       --test:=Integer'Input(Flux);
       --P(I):=Float'Input(Flux); -- Ajout de la proba dans le tableau
-      P(I):=Float(TEST(I));
-      test1:=TEST(I);
-      --Put(Integer'Image(test1));
+      P(I):=Float(data_read);
+
+      Put(Float'Image(S));
       Put(Float'Image(S));
       S := S + (P(I)); -- MaJ de la somme des proba
       I := I + 1; --indice correspondant à l'entiers
     end loop;
+
     --Put_Line("TEST2");
-    ----Close(Fichier);
+    Close(Fichier);
     --Put_Line("fermeture du fichier");
 
     for l in 0..n-1 loop
@@ -105,7 +113,7 @@ R : T_Int; --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
 A : Arbre;
 begin
 
-  Mise_En_Place_Optimal(Argument(1), n, R);
+  Mise_En_Place_Optimal(Argument(2), n, R);
   Put_Line("R :=");
   for i in 0..(n-1) loop
     for j in 0..(n-1)loop
