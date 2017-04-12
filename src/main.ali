@@ -11,7 +11,7 @@ RV NO_STREAMS
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U main%b		main.adb		7172ae0a NE OO SU IL
+U main%b		main.adb		3951e7fb NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -20,6 +20,7 @@ W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W arbre_optimal%s	arbre_optimal.adb	arbre_optimal.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
 W system.img_real%s	s-imgrea.adb		s-imgrea.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
@@ -41,8 +42,9 @@ D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D arbre_optimal.ads	20170412123105 020b1be3 arbre_optimal%s
 D interfac.ads		20141120112812 6033a23f interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170412133015 70d82270 main%b
+D main.adb		20170412144909 38fb6b81 main%b
 D system.ads		20141031112219 1d274481 system%s
+D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
 D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
@@ -67,7 +69,7 @@ X 1 ada.ads
 16K9*Ada 19e8 16|1r6 1r19 1r55 1r78 1r97 2r5 2r18 2r54 2r77 9r37 16r15
 X 2 a-comlin.ads
 38K13*Command_Line 139e21 16|1w101 2r81
-48V13*Argument{string} 16|6s29 116s25
+48V13*Argument{string} 16|6s29 149s25
 X 5 a-inteio.ads
 18K13*Integer_Text_IO[11|46] 16|1w23 2r22
 X 6 a-ioexce.ads
@@ -80,56 +82,59 @@ X 8 a-ststio.ads
 44P9*File_Type 16|9r59 16r37
 46n23*In_File{46E9} 16|11r20
 73U14*Open 16|11s7
-79U14*Close 16|64s5
-89V13*End_Of_File{boolean} 16|51s24
-91V13*Stream{42P9} 16|12s15 45s13
+79U14*Close 16|97s5
+89V13*End_Of_File{boolean} 16|54s28
+91V13*Stream{42P9} 16|12s15 48s13
 X 10 a-textio.ads
 49K13*Text_IO 471e16 16|1w10 2r9
-166U14*New_Line 16|121s9 125s9
-242U14*Put 16|57s7 58s7 96s5 122s9
-263U14*Put_Line 16|117s3
+166U14*New_Line 16|154s9 158s9
+242U14*Put 16|129s5 155s9
+263U14*Put_Line 16|78s9 90s7 150s3
 X 11 a-tiinio.ads
-66U14*Put 16|123s9[5|18] 124s9[5|18]
+66U14*Put 16|156s9[5|18] 157s9[5|18]
 X 13 arbre_optimal.ads
 4K9*Arbre_Optimal 72e18 16|1w40 2r39
-6P14*Arbre 16|113r5
+6P14*Arbre 16|146r5
 X 16 main.adb
-4U11*main 4b11 131l5 131t9
-6i1 n{integer} 7r24 7r31 116r38 118r16 119r18
-7A6 T_Int(integer)<integer><integer> 15r84 112r5
-9U11 Open_Fichier 9b11 9<24 9<70 9>95 13l7 13t19 44s5
+4U11*main 4b11 164l5 164t9
+6i1 n{integer} 7r24 7r31 149r38 151r16 152r18
+7A6 T_Int(integer)<integer><integer> 15r84 145r5
+9U11 Open_Fichier 9b11 9<24 9<70 9>95 13l7 13t19 47s5
 9p24 Fichier{8|44P9} 11m12 12r22
 9p70 Flux{8|42P9} 12m7
 9a95 Nom_Fichier{string} 11r28
-15U13 Mise_En_Place_Optimal 15b13 15>35 15>60 15<76 97l7 97t28 116s3
-15a35 Nom_Fichier{string} 44r31
-15i60 n{integer} 20r18 21r18 21r25 22r18 22r25 33r18 34r20 38r17 51r16 67r17
-. 71r17 72r19
-15a76 R{7A6} 35m9 42m7 92m9
-16p5 Fichier{8|44P9} 44m18 44r18 45r20 51r36 64m11 64r11
-17p5 Flux{8|42P9} 44m26 44r26 45m5 52r20
-18i5 data_read{integer} 52m25 52r25 55r19
-19f5 S{float} 31m5 57r23 58r23 59m7 59r12 68r18 96r21
-20a5 P(float) 39m7 55m7 59r17 68m7 68r13 79r26
-21a5 C(float) 40m7 80r17 84r16 84r25 85r23 85r32 91m9 91r24 91r33
-22a5 W(float) 41m7 79m9 79r17 91r17
-23a5 TEST(integer)
-24i5 j{integer} 73m9 79r13 79r21 79r28 80r21 81r12 82r21 83r17 84r29 85r36
-. 91r13 91r21 91r37 92r13
-25f5 Cmin{float} 80m9 84r34 85m15
-26i5 m{integer} 30m5 81m9 86m15 91r28 91r35 92r18
-27i5 I{integer} 32m5 51r11 55r9 59r19 60m7 60r12
-28i5 test1{integer}
-33i9 i{integer} 35r11
-34i11 j{integer} 35r13
-38i9 j{integer} 39r9 40r9 40r11 41r9 41r11 42r9 42r11 42r15
-67i9 l{integer} 68r9 68r15
-71i9 l{integer} 72r23 73r15
-72i11 i{integer} 73r13 79r11 79r19 80r19 82r18 83r30 84r18 85r25 91r11 91r19
-. 91r26 92r11
-82i13 k{integer} 83r14 83r25 84r20 84r27 85r27 85r34 86r20
-112a1 R{7A6} 116m41 122r27
-113p1 A{13|6P14}
-118i7 i{integer} 120r10 122r29 123r13
-119i9 j{integer} 120r13 122r31 124r13
+15U13 Mise_En_Place_Optimal 15b13 15>35 15>60 15<76 130l7 130t28 149s3
+15a35 Nom_Fichier{string} 47r31
+15i60 n{integer} 23r18 24r18 24r25 25r18 25r25 36r18 37r20 41r17 54r16 100r17
+. 104r17 105r19
+15a76 R{7A6} 38m9 45m7 125m9
+16p5 Fichier{8|44P9} 47m18 47r18 48r20 54r40 97m11 97r11
+17p5 Flux{8|42P9} 47m26 47r26 48m5 55r22
+18e5 data_read{character} 55m27 55r27 57r10 59r13 61r13 63r13 65r13 67r13
+. 69r13 71r13 73r13 75r13
+19i5 data_value{integer} 58m7 60m7 62m7 64m7 66m7 68m7 70m7 72m7 74m7 76m7
+. 86r44
+20b5 add{boolean} 56m7 84m7 86r8
+21i5 data_sum{integer} 77r13 78r54 79r21 82m9 86m22 86r32 89r8 90r52 91r19
+22f5 S{float} 34m5 80m9 80r14 92m7 92r12 101r18 129r21
+23a5 P(float) 42m7 79m9 80r19 91m7 92r17 101m7 101r13 112r26
+24a5 C(float) 43m7 113r17 117r16 117r25 118r23 118r32 124m9 124r24 124r33
+25a5 W(float) 44m7 112m9 112r17 124r17
+27i5 j{integer} 106m9 112r13 112r21 112r28 113r21 114r12 115r21 116r17 117r29
+. 118r36 124r13 124r21 124r37 125r13
+28f5 Cmin{float} 113m9 117r34 118m15
+29i5 m{integer} 33m5 114m9 119m15 124r28 124r35 125r18
+30i5 I{integer} 35m5 54r11 79r11 80r21 81m9 81r14 91r9 92r19 93m7 93r12
+36i9 i{integer} 38r11
+37i11 j{integer} 38r13
+41i9 j{integer} 42r9 43r9 43r11 44r9 44r11 45r9 45r11 45r15
+100i9 l{integer} 101r9 101r15
+104i9 l{integer} 105r23 106r15
+105i11 i{integer} 106r13 112r11 112r19 113r19 115r18 116r30 117r18 118r25
+. 124r11 124r19 124r26 125r11
+115i13 k{integer} 116r14 116r25 117r20 117r27 118r27 118r34 119r20
+145a1 R{7A6} 149m41 155r27
+146p1 A{13|6P14}
+151i7 i{integer} 153r10 155r29 156r13
+152i9 j{integer} 153r13 155r31 157r13
 

@@ -15,17 +15,20 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
   procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
     Fichier : Ada.Streams.Stream_IO.File_Type;
     Flux : Stream_Access;
-    data_read : Integer;
+    data_read : Character;
+    data_value : Integer:=0;
+    add : Boolean;
+    data_sum : Integer:=0;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
     P : array(0..n-1) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
     C : array(0..n-1,0..n-1) of Float ; -- C(i,j) = cout de l arbre T(i,j)
     W : array(0..n-1,0..n-1) of Float ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
-    TEST : array(0..4) of Integer; -- TEST permet de tester sans lecture de fichier
+
     j : Integer;
     Cmin : Float; -- Cmin
     m : Integer; -- valeur de k minimisant C(i,k-1)+C(k,j)
     I : Integer; -- Valeur de l'entier (valeur sur un noeud)
-    test1 : Integer;
+
   begin
     m := -1;
     S := 0.0;
@@ -48,17 +51,47 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     --Put("Lecture des donnees: ");
 
     --while not End_Of_File(Fichier) or I <= n-1 loop -- on lit le fichier
-    while I <= n-1 and End_Of_File(Fichier) loop
-      Integer'Read(Flux,data_read);
-      --test:=Integer'Input(Flux);
-      --P(I):=Float'Input(Flux); -- Ajout de la proba dans le tableau
-      P(I):=Float(data_read);
-
-      Put(Float'Image(S));
-      Put(Float'Image(S));
-      S := S + (P(I)); -- MaJ de la somme des proba
-      I := I + 1; --indice correspondant à l'entiers
+    while I <= n-1 and not End_Of_File(Fichier) loop
+      Character'Read(Flux,data_read);
+      add:=True;
+      if(data_read='0') then
+      data_value:=0;
+      elsif(data_read='1') then
+      data_value:=1;
+      elsif(data_read='2') then
+      data_value:=2;
+      elsif(data_read='3') then
+      data_value:=3;
+      elsif(data_read='4') then
+      data_value:=4;
+      elsif(data_read='5') then
+      data_value:=5;
+      elsif(data_read='6') then
+      data_value:=6;
+      elsif(data_read='7') then
+      data_value:=7;
+      elsif(data_read='8') then
+      data_value:=8;
+      elsif(data_read='9') then
+      data_value:=9;
+    else if data_sum/=0 then
+        Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
+        P(I):=Float(data_sum);
+        S := S + (P(I));
+        I := I + 1;
+        data_sum:=0;
+      end if;
+      add:=False;
+    end if;
+    if add=True then data_sum:=data_sum*10+data_value;
+    end if;
     end loop;
+    if data_sum/=0 then
+      Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
+      P(I):=Float(data_sum);
+      S := S + (P(I));
+      I := I + 1;
+    end if;
 
     --Put_Line("TEST2");
     Close(Fichier);
