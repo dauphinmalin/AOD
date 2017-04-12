@@ -5,7 +5,7 @@ procedure main is
 
 
 n : Integer:= Integer'Value(Argument(1));
-type T_Int is array(0..n,0..n) of Integer;
+
 
 procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out Stream_Access; Nom_Fichier: in String ) is
   begin
@@ -111,7 +111,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
         j:= i+l;
 
         W(i,j):=W(i,j-1)+P(j);
-        Cmin := 100.0; --PB ? initialisation
+        Cmin := 2000000000000.0; --PB ? initialisation
         m:=j;
         for k in (i+1)..j loop
             if(C(i,k-1)+C(k,j) < Cmin) then
@@ -126,23 +126,12 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     Put(Float'Image(S));
   end Mise_En_Place_Optimal;
 
-R : T_Int; --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
+R : T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
 A : Arbre;
 begin
 
   Mise_En_Place_Optimal(Argument(2), n, R);
-  Put_Line("R :=");
-  for i in 0..n loop
-    for j in 0..n loop
-      if(i<=j) then
-        New_line(1);
-        Put(Integer'Image(R(i,j)));
-        Put(" i " & Integer'Image(i));
-        Put(" j " & Integer'Image(j));
-        New_line(1);
-      end if;
-    end loop;
-  end loop;
-  --A := Construit_Abr_Optimal(0,n-1,R);
+  A := Construit_Abr_Optimal(0,n,R);
+  Affiche_Arbre(A);
 
 end main;

@@ -3,19 +3,18 @@ P ZX
 
 RN
 RV NO_ALLOCATORS
-RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
 RV NO_RECURSION
 RV NO_STANDARD_STORAGE_POOLS
-RV NO_STREAMS
 RV NO_UNCHECKED_DEALLOCATION
 RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U arbre_optimal%b	arbre_optimal.adb	8824315d NE OO PK
+U arbre_optimal%b	arbre_optimal.adb	4bdb3a24 NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -28,9 +27,8 @@ W system.img_int%s	s-imgint.adb		s-imgint.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
-W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
-U arbre_optimal%s	arbre_optimal.ads	c14e40d2 EE OO PK
+U arbre_optimal%s	arbre_optimal.ads	1db7df66 EE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
@@ -52,8 +50,8 @@ D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
-D arbre_optimal.ads	20170412145726 020b1be3 arbre_optimal%s
-D arbre_optimal.adb	20170412145656 7616532e arbre_optimal%b
+D arbre_optimal.ads	20170412153837 def28457 arbre_optimal%s
+D arbre_optimal.adb	20170412153712 6910c7e3 arbre_optimal%b
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
 D system.ads		20151123113124 6326c08a system%s
@@ -73,56 +71,51 @@ D s-stalib.adb		20140225151139 f2fe2716 system.standard_library%b
 D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
 D s-stopoo.ads		20131010103753 b16154c2 system.storage_pools%s
 D s-stposu.ads		20151020120548 97a6219c system.storage_pools.subpools%s
-D s-stratt.ads		20131014135145 aedef97e system.stream_attributes%s
 D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 19e8 13|1r6 1r33 40r49 42r104 14|1r6 1r31 2r6 2r23 3r6 7r6 7r33
-. 18r25 87r43 104r55
+16K9*Ada 19e8 13|1r6 1r33 14|1r6 1r31 2r6 2r23 3r6 7r6 7r33 16r25
 X 4 a-inteio.ads
 18K13*Integer_Text_IO[10|46] 14|1w10 1r35
 X 6 a-stream.ads
-36K13*Streams 87e16 13|1r10 1r37 40r53 42r108 14|7r10 7r37 87r47 104r59
+36K13*Streams 87e16 13|1r10 1r37 14|7r10 7r37
 X 7 a-ststio.ads
-39K21*Stream_IO 223e26 13|1w18 1r45 40r61 42r116 14|7w18 7r45 87r55 104r67
-42P9*Stream_Access(6|39R9) 13|40r71 42r126 14|87r65 104r77
+39K21*Stream_IO 223e26 13|1w18 1r45 14|7w18 7r45
 X 9 a-textio.ads
 49K13*Text_IO 471e16 14|2w10 2r27
-242U14*Put 14|64s9 109s3
-263U14*Put_Line 14|72s7 74s7
+242U14*Put 14|46s7 48s9 52s9
 X 12 a-uncdea.ads
-20u15*Unchecked_Deallocation 14|3w10 18r29
+20u15*Unchecked_Deallocation 14|3w10 16r29
 X 13 arbre_optimal.ads
-4K9*Arbre_Optimal 69E14 74l5 74e18 14|8b14 187l5 187t18
-6P14*Arbre 12r21 21r50 22r42 24r38 40r36 72c14 14|12r17 13r17 18r59 29r45
-. 30r9 39r39 55r34 87r30
-10R14*Arbre_Optimal 15e19 23r40 25r35 41r42 14|50r35 69r31 104r34
-12p17*A{6P14} 14|52m25 73r26 110r20
-14i17*Nb_Total_Elements{natural} 14|108r28
-21V18*creer_arbre{6P14} 21>30 14|29b14 36l9 36t20
-21i30 I{integer} 14|29b26 32r17
-22U19*Libere_Arbre 22=32 14|39b15 42s9 45s9 48l9 48t21 52s7
-22p32 A{6P14} 14|39b28 41r11 42r22 44r11 45r22 47m12
-23U19*Libere 23=26 14|50b15 53l9 53t15
-23r26 AbrO{10R14} 14|50b22 52m20 52r20
-24U19*Affiche_Arbre 24>33 14|55b15 58s9 61s9 66l9 66t22 73s7
-24p33 A{6P14} 14|55b29 57r10 58r23 60r10 61r23 63r10 63r32 64r27
-25U19*Affiche 25>27 14|69b15 75l9 75t16
-25r27 AbrO{10R14} 14|69b23 73r21
-40U19*Ecrit_Arbre 40>31 40>42 14|87b13 90s5 93s5 101l5 101t16 110s3
-40p31 A{6P14} 14|87b25 89r6 90r17 92r6 93r17 97r6 97r28 98r25
-40p42 Flux{7|42P9} 14|87b36 90r30 93r29 98r20
-41V18*Ecrit_Optimal{positive} 41>32 42>97 14|104b10 112l5 112t18
-41r32 AbrO{10R14} 14|104b24 108r23 110r15
-42p97 Flux{7|42P9} 14|104b48 108r18 110r22
-69R14 Noeud 72r30 14|10c8 14e13 18r53 30r20
+4K9*Arbre_Optimal 27E14 32l5 32e18 14|8b14 72l5 72t18
+6P14*Arbre 12r21 17r50 18r42 20r38 22r87 30c14 14|12r17 13r17 16r59 18r45
+. 19r9 28r39 44r34 59r79 60r7
+8A8*T_Int(integer)<integer><integer> 22r73 14|59r65
+10R14*Arbre_Optimal 15e19 19r40 14|39r35
+12p17*A{6P14} 14|41m25
+14i17*Nb_Total_Elements{natural}
+17V18*creer_arbre{6P14} 17>30 14|18b14 25l9 25t20 62s8
+17i30 I{integer} 14|18b26 21r17
+18U19*Libere_Arbre 18=32 14|28b15 31s9 34s9 37l9 37t21 41s7
+18p32 A{6P14} 14|28b28 30r11 31r22 33r11 34r22 36m12
+19U19*Libere 19=26 14|39b15 42l9 42t15
+19r26 AbrO{10R14} 14|39b22 41m20 41r20
+20U19*Affiche_Arbre 20>33 14|44b15 49s9 53s9 56l9 56t22
+20p33 A{6P14} 14|44b29 46r25 47r10 49r23 51r10 53r23
+22V18*Construit_Abr_Optimal{6P14} 22>40 22>53 22>66 14|59b10 64s20 67s19
+. 70l5 70t26
+22i40 i{integer} 14|59b32 62r22 63r6 63r12 64r42 64r47 66r8 67r43
+22i53 j{integer} 14|59b45 62r24 63r14 64r49 66r10 66r13 67r45 67r48
+22a66 R{8A8} 14|59b58 62r20 63r10 64r45 64r54 66r6 67r41 67r50
+27R14 Noeud 30r30 14|10c8 14e13 16r53 19r20
 X 14 arbre_optimal.adb
-11i5*valeur{integer} 32m9 64r29 98r27
-12p5*filsgauche{13|6P14} 33m9 41r13 42m24 60r12 61r25 63r12 89r8 90r19 97r8
-13p5*filsdroit{13|6P14} 34m9 44r13 45m24 57r12 58r25 63r34 92r8 93r19 97r30
-18U13 Free[12|20] 47s7
-30p7 A{13|6P14} 32r7 33r7 34r7 35r14
+11i5*valeur{integer} 21m9 46r27
+12p5*filsgauche{13|6P14} 22m9 30r13 31m24 51r12 53r25 64m7
+13p5*filsdroit{13|6P14} 23m9 33r13 34m24 47r12 49r25 67m7
+16U13 Free[12|20] 36s7
+19p7 A{13|6P14} 21r7 22r7 23r7 24r14
+60p3 A{13|6P14} 62m3 64r5 67r5 69r10
 X 17 system.ads
 67M9*Address
 X 24 s-memory.ads

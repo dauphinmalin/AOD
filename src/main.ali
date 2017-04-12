@@ -12,7 +12,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		94775885 NE OO SU IL
+U main%b		main.adb		f7bed379 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -40,10 +40,10 @@ D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
-D arbre_optimal.ads	20170412145726 020b1be3 arbre_optimal%s
+D arbre_optimal.ads	20170412153837 def28457 arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170412145853 95ddd4ff main%b
+D main.adb		20170412153735 2aedc0b7 main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
@@ -88,18 +88,19 @@ X 8 a-ststio.ads
 91V13*Stream{42P9} 16|13s15 50s13
 X 10 a-textio.ads
 49K13*Text_IO 471e16 16|1w10 2r9
-166U14*New_Line 16|138s9 142s9
-242U14*Put 16|36s5 105s7 106s7 126s5 139s9 140s9 141s9
-263U14*Put_Line 16|80s9 93s7 108s5 134s3
+242U14*Put 16|36s5 105s7 106s7 126s5
+263U14*Put_Line 16|80s9 93s7 108s5
 X 11 a-tiinio.ads
 66U14*Put 16|36s15[5|18]
 X 13 arbre_optimal.ads
-4K9*Arbre_Optimal 74e18 16|1w40 2r39
+4K9*Arbre_Optimal 32e18 16|1w40 2r39
 6P14*Arbre 16|130r5
+8A8*T_Int(integer)<integer><integer> 16|16r84 129r5
+20U19*Affiche_Arbre 16|135s3
+22V18*Construit_Abr_Optimal{6P14} 16|134s8
 X 16 main.adb
-4U11*main 4b11 148l5 148t9
-7i1 n{integer} 8r24 8r29 133r38 135r15 136r17
-8A6 T_Int(integer)<integer><integer> 16r84 129r5
+4U11*main 4b11 137l5 137t9
+7i1 n{integer} 129r14 129r19 133r38 134r32
 10U11 Open_Fichier 10b11 10<24 10<70 10>95 14l7 14t19 49s5
 10p24 Fichier{8|44P9} 12m12 13r22
 10p70 Flux{8|42P9} 13m7
@@ -108,7 +109,7 @@ X 16 main.adb
 16a35 Nom_Fichier{string} 49r31
 16i60 n{integer} 24r18 25r18 25r23 26r18 26r23 36r19 37r17 38r19 42r17 56r16
 . 103r17 109r17 110r19
-16a76 R{8A6} 39m9 47m7 123m9
+16a76 R{13|8A8} 39m9 47m7 123m9
 17p5 Fichier{8|44P9} 49m18 49r18 50r20 56r40 100m11 100r11
 18p5 Flux{8|42P9} 49m26 49r26 50m5 57r22
 19e5 data_read{character} 57m27 57r27 59r10 61r13 63r13 65r13 67r13 69r13
@@ -134,8 +135,6 @@ X 16 main.adb
 110i11 i{integer} 111r13 113r11 113r19 116r19 117r18 118r25 122r11 122r19
 . 123r11
 116i13 k{integer} 117r20 117r27 118r27 118r34 119r20
-129a1 R{8A6} 133m41 139r27
-130p1 A{13|6P14}
-135i7 i{integer} 137r10 139r29 140r35
-136i9 j{integer} 137r13 139r31 141r35
+129a1 R{13|8A8} 133m41 134r34
+130p1 A{13|6P14} 134m3 135r17
 
