@@ -60,7 +60,6 @@ package body Arbre_Optimal is
       end if;
       if A.filsgauche=NULL and A.filsdroit=NULL then
         Put(Integer'Image(A.valeur));
-        Put(Float'Image(A.proba));
       end if ;
     end Affiche_Arbre;
 
