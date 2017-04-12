@@ -33,7 +33,6 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     m := -1;
     S := 0.0;
     I := 0;
-    TEST(0) := 3; TEST(1) := 2; TEST(2) := 50; TEST(3) := 5; TEST(4) := 79; TEST(5) := 46; TEST(6) := 348; TEST(7) := 7; TEST(8) := 5;
     Put("N=");Put(n);
     for i in 1..n loop
       for j in 0..n loop
