@@ -4,7 +4,7 @@ use Ada.Text_IO, Ada.Integer_Text_Io, arbre_optimal, Ada.Streams.Stream_IO, Ada.
 procedure main is
 
 
-n : Integer:= Integer'Value(Argument(1));
+n : Integer:= Integer'Value(Argument(1)); --entrée de (0 à n)
 
 
 procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out Stream_Access; Nom_Fichier: in String ) is
@@ -13,7 +13,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
       Flux := Stream(Fichier);
   end Open_fichier;
 
-  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int; Cout : out float) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
+  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
     Fichier : Ada.Streams.Stream_IO.File_Type;
     Flux : Stream_Access;
     data_read : Character;
@@ -33,7 +33,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     m := -1;
     S := 0.0;
     I := 0;
-    Put("N=");Put(n);
+    --Put("N=");Put(n);
     for i in 1..n loop
       for j in 0..n loop
         R(i,j):=-1;
@@ -77,7 +77,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
       elsif(data_read='9') then
       data_value:=9;
     else if data_sum/=0 then
-        Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
+        --Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
         P(I):=Float(data_sum);
         S := S + (P(I));
         I := I + 1;
@@ -90,7 +90,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
 
     end loop;
     if data_sum/=0 then
-      Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
+      --Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
       P(I):=Float(data_sum);
       S := S + (P(I));
       I := I + 1;
@@ -102,10 +102,10 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
 
     for l in 0..n loop
       P(l):=P(l)/S;
-      Put("PROBA");
-      Put(Float'Image(P(l)));
+      --Put("PROBA");
+      --Put(Float'Image(P(l)));
     end loop;
-    Put_Line("");
+    --Put_Line("");
     for l in 1..n loop
       for i in 0..n-l loop
         j:= i+l;
@@ -123,18 +123,16 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
         R(i,j):= m;
       end loop;
     end loop;
-    Put(Float'Image(S));
-    Cout := C(0,4);
   end Mise_En_Place_Optimal;
 
 R : T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
+T : T_Int(0..n,0..1);
 A : Arbre;
-Cout : Float;
 begin
 
-  Mise_En_Place_Optimal(Argument(2), n, R, Cout);
-  Put_Line("Cout" & Float'Image(Cout));
-  A := Construit_Abr_Optimal(0,n,R);
-  Affiche_Arbre(A);
+    Mise_En_Place_Optimal(Argument(2), n, R);
+    A := Construit_Abr_Optimal(0,n,R);
+    Parcourir_Abr_Optimal(A,T);
+    Affiche(T,n, A);
 
 end main;

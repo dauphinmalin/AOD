@@ -12,7 +12,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		ba78aa9b NE OO SU IL
+U main%b		main.adb		b5292081 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -21,9 +21,6 @@ W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W arbre_optimal%s	arbre_optimal.adb	arbre_optimal.ali
-W system.concat_2%s	s-conca2.adb		s-conca2.ali
-W system.img_int%s	s-imgint.adb		s-imgint.ali
-W system.img_real%s	s-imgrea.adb		s-imgrea.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 W system.val_int%s	s-valint.adb		s-valint.ali
@@ -40,19 +37,16 @@ D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
-D arbre_optimal.ads	20170412153837 def28457 arbre_optimal%s
+D arbre_optimal.ads	20170413102613 ef76003d arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170412160111 672bb955 main%b
+D main.adb		20170413104106 59feb725 main%b
 D system.ads		20151123113124 6326c08a system%s
-D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
 D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
 D s-finmas.ads		20151016130316 7811a767 system.finalization_masters%s
 D s-finroo.ads		20120426095924 4ff27390 system.finalization_root%s
-D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
-D s-imgrea.ads		20090409150019 c7a851e2 system.img_real%s
 D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
 D s-pooglo.ads		20151118103153 ede33ef8 system.pool_global%s
 D s-secsta.ads		20140225151139 86a2856d system.secondary_stack%s
@@ -70,7 +64,7 @@ X 1 ada.ads
 16K9*Ada 19e8 16|1r6 1r19 1r55 1r78 1r97 2r5 2r18 2r54 2r77 10r37 17r15
 X 2 a-comlin.ads
 38K13*Command_Line 139e21 16|1w101 2r81
-48V13*Argument{string} 16|7s29 135s25
+48V13*Argument{string} 16|7s29 133s27
 X 5 a-inteio.ads
 18K13*Integer_Text_IO[11|46] 16|1w23 2r22
 X 6 a-ioexce.ads
@@ -88,29 +82,25 @@ X 8 a-ststio.ads
 91V13*Stream{42P9} 16|13s15 50s13
 X 10 a-textio.ads
 49K13*Text_IO 471e16 16|1w10 2r9
-242U14*Put 16|36s5 105s7 106s7 126s5
-263U14*Put_Line 16|80s9 93s7 108s5 136s3
-X 11 a-tiinio.ads
-66U14*Put 16|36s15[5|18]
 X 13 arbre_optimal.ads
-4K9*Arbre_Optimal 32e18 16|1w40 2r39
-6P14*Arbre 16|131r5
-8A8*T_Int(integer)<integer><integer> 16|16r84 130r5
-20U19*Affiche_Arbre 16|138s3
-22V18*Construit_Abr_Optimal{6P14} 16|137s8
+4K9*Arbre_Optimal 34e18 16|1w40 2r39
+6P14*Arbre 16|130r5
+8A8*T_Int(integer)<integer><integer> 16|16r84 128r5 129r5
+22V18*Construit_Abr_Optimal{6P14} 16|134s10
+24U19*Parcourir_Abr_Optimal 16|135s5
+25U23*Affiche 16|136s5
 X 16 main.adb
-4U11*main 4b11 140l5 140t9
-7i1 n{integer} 130r14 130r19 135r38 137r32
+4U11*main 4b11 138l5 138t9
+7i1 n{integer} 128r14 128r19 129r14 133r40 134r34 136r15
 10U11 Open_Fichier 10b11 10<24 10<70 10>95 14l7 14t19 49s5
 10p24 Fichier{8|44P9} 12m12 13r22
 10p70 Flux{8|42P9} 13m7
 10a95 Nom_Fichier{string} 12r28
-16U13 Mise_En_Place_Optimal 16b13 16>35 16>60 16<76 16<91 128l7 128t28 135s3
+16U13 Mise_En_Place_Optimal 16b13 16>35 16>60 16<76 126l7 126t28 133s5
 16a35 Nom_Fichier{string} 49r31
-16i60 n{integer} 24r18 25r18 25r23 26r18 26r23 36r19 37r17 38r19 42r17 56r16
-. 103r17 109r17 110r19
+16i60 n{integer} 24r18 25r18 25r23 26r18 26r23 37r17 38r19 42r17 56r16 103r17
+. 109r17 110r19
 16a76 R{13|8A8} 39m9 47m7 123m9
-16f91 Cout{float} 127m5
 17p5 Fichier{8|44P9} 49m18 49r18 50r20 56r40 100m11 100r11
 18p5 Flux{8|42P9} 49m26 49r26 50m5 57r22
 19e5 data_read{character} 57m27 57r27 59r10 61r13 63r13 65r13 67r13 69r13
@@ -118,10 +108,10 @@ X 16 main.adb
 20i5 data_value{integer} 60m7 62m7 64m7 66m7 68m7 70m7 72m7 74m7 76m7 78m7
 . 88r44
 21b5 add{boolean} 58m7 86m7 88r8
-22i5 data_sum{integer} 79r13 80r54 81r21 84m9 88m22 88r32 92r8 93r52 94r19
-23f5 S{float} 34m5 82m9 82r14 95m7 95r12 104r18 126r21
-24a5 P(float) 44m7 81m9 82r19 94m7 95r17 104m7 104r13 106r23 113r26
-25a5 C(float) 45m7 117r16 117r25 118r23 118r32 122m9 127r13
+22i5 data_sum{integer} 79r13 81r21 84m9 88m22 88r32 92r8 94r19
+23f5 S{float} 34m5 82m9 82r14 95m7 95r12 104r18
+24a5 P(float) 44m7 81m9 82r19 94m7 95r17 104m7 104r13 113r26
+25a5 C(float) 45m7 117r16 117r25 118r23 118r32 122m9
 26a5 W(float) 46m7 113m9 113r17 122r17
 27i5 j{integer} 111m9 113r13 113r21 113r28 115r12 116r25 117r29 118r36 122r13
 . 122r21 123r13
@@ -131,12 +121,12 @@ X 16 main.adb
 37i9 i{integer} 39r11
 38i11 j{integer} 39r13
 42i9 j{integer} 44r9 45r9 45r11 46r9 46r11 47r9 47r11 47r15
-103i9 l{integer} 104r9 104r15 106r25
+103i9 l{integer} 104r9 104r15
 109i9 l{integer} 110r21 111r15
 110i11 i{integer} 111r13 113r11 113r19 116r19 117r18 118r25 122r11 122r19
 . 123r11
 116i13 k{integer} 117r20 117r27 118r27 118r34 119r20
-130a1 R{13|8A8} 135m41 137r34
-131p1 A{13|6P14} 137m3 138r17
-132f1 Cout{float} 135m44 136r33
+128a1 R{13|8A8} 133m43 134r36
+129a1 T{13|8A8} 135m29 135r29 136r13
+130p1 A{13|6P14} 134m5 135r27 136r18
 
