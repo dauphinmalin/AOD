@@ -12,7 +12,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		b5292081 NE OO SU IL
+U main%b		main.adb		068a8132 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -40,7 +40,7 @@ D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D arbre_optimal.ads	20170413102613 ef76003d arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170413104106 59feb725 main%b
+D main.adb		20170413105212 ea5d1696 main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -91,14 +91,14 @@ X 13 arbre_optimal.ads
 25U23*Affiche 16|136s5
 X 16 main.adb
 4U11*main 4b11 138l5 138t9
-7i1 n{integer} 128r14 128r19 129r14 133r40 134r34 136r15
+7i1 n{integer} 128r14 128r21 129r14 133r40 134r34 136r15
 10U11 Open_Fichier 10b11 10<24 10<70 10>95 14l7 14t19 49s5
 10p24 Fichier{8|44P9} 12m12 13r22
 10p70 Flux{8|42P9} 13m7
 10a95 Nom_Fichier{string} 12r28
 16U13 Mise_En_Place_Optimal 16b13 16>35 16>60 16<76 126l7 126t28 133s5
 16a35 Nom_Fichier{string} 49r31
-16i60 n{integer} 24r18 25r18 25r23 26r18 26r23 37r17 38r19 42r17 56r16 103r17
+16i60 n{integer} 24r18 25r18 25r25 26r18 26r25 37r17 38r19 42r17 56r16 103r17
 . 109r17 110r19
 16a76 R{13|8A8} 39m9 47m7 123m9
 17p5 Fichier{8|44P9} 49m18 49r18 50r20 56r40 100m11 100r11
@@ -122,11 +122,11 @@ X 16 main.adb
 38i11 j{integer} 39r13
 42i9 j{integer} 44r9 45r9 45r11 46r9 46r11 47r9 47r11 47r15
 103i9 l{integer} 104r9 104r15
-109i9 l{integer} 110r21 111r15
+109i9 l{integer} 110r23 111r15
 110i11 i{integer} 111r13 113r11 113r19 116r19 117r18 118r25 122r11 122r19
 . 123r11
 116i13 k{integer} 117r20 117r27 118r27 118r34 119r20
-128a1 R{13|8A8} 133m43 134r36
+128a1 R{13|8A8} 133m43 134r38
 129a1 T{13|8A8} 135m29 135r29 136r13
 130p1 A{13|6P14} 134m5 135r27 136r18
 

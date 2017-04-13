@@ -21,9 +21,9 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     add : Boolean;
     data_sum : Integer:=0;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
-    P : array(0..n) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
-    C : array(0..n,0..n) of Float ; -- C(i,j) = cout de l arbre T(i,j)
-    W : array(0..n,0..n) of Float ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
+    P : array(0..n-1) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
+    C : array(0..n-1,0..n-1) of Float ; -- C(i,j) = cout de l arbre T(i,j)
+    W : array(0..n-1,0..n-1) of Float ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
     j : Integer;
     Cmin : Float; -- Cmin
     m : Integer; -- valeur de k minimisant C(i,k-1)+C(k,j)
@@ -34,12 +34,12 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     S := 0.0;
     I := 0;
     --Put("N=");Put(n);
-    for i in 1..n loop
-      for j in 0..n loop
+    for i in 1..n-1 loop
+      for j in 0..n-1 loop
         R(i,j):=-1;
       end loop;
     end loop;
-    for j in 0..n loop
+    for j in 0..n-1 loop
 
       P(j):=0.0;
       C(j,j):=0.0;
@@ -100,14 +100,14 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     Close(Fichier);
     --Put_Line("fermeture du fichier");
 
-    for l in 0..n loop
+    for l in 0..n-1 loop
       P(l):=P(l)/S;
       --Put("PROBA");
       --Put(Float'Image(P(l)));
     end loop;
     --Put_Line("");
-    for l in 1..n loop
-      for i in 0..n-l loop
+    for l in 1..n-1 loop
+      for i in 0..n-1-l loop
         j:= i+l;
 
         W(i,j):=W(i,j-1)+P(j);
@@ -125,13 +125,13 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     end loop;
   end Mise_En_Place_Optimal;
 
-R : T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
-T : T_Int(0..n,0..1);
+R : T_Int(0..n-1,0..n-1); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
+T : T_Int(0..n-1,0..1);
 A : Arbre;
 begin
 
     Mise_En_Place_Optimal(Argument(2), n, R);
-    A := Construit_Abr_Optimal(0,n,R);
+    A := Construit_Abr_Optimal(0,n-1,R);
     Parcourir_Abr_Optimal(A,T);
     Affiche(T,n, A);
 
