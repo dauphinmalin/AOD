@@ -1,0 +1,150 @@
+V "GNAT Lib v6"
+M P W=b
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U main%b		main.adb		db71f23f NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W arbre_optimal%s	arbre_optimal.adb	arbre_optimal.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
+
+D ada.ads		20070406091342 3ffc8e18 ada%s
+D a-comlin.ads		20140225151544 ea62afbc ada.command_line%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-finali.ads		20151020095656 bf4f806b ada.finalization%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-ststio.ads		20120709130952 c3455b31 ada.streams.stream_io%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
+D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
+D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
+D interfac.ads		20151118101227 4be8ce1b interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D main.adb		20170413220230 68b58a32 main%b
+D system.ads		20151123113124 6326c08a system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-finmas.ads		20151016130316 7811a767 system.finalization_masters%s
+D s-finroo.ads		20120426095924 4ff27390 system.finalization_root%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-pooglo.ads		20151118103153 ede33ef8 system.pool_global%s
+D s-secsta.ads		20140225151139 86a2856d system.secondary_stack%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20131010103753 b16154c2 system.storage_pools%s
+D s-stratt.ads		20131014135145 aedef97e system.stream_attributes%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
+D s-valint.ads		20090409150019 48a52a3f system.val_int%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 19e8 17|1r6 1r19 1r55 1r78 1r97 2r5 2r18 2r54 2r77 3r6 10r23 13r37
+. 20r15
+X 2 a-comlin.ads
+38K13*Command_Line 139e21 17|1w101 2r81
+48V13*Argument{string} 17|9s29 138s27
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 17|1w23 2r22
+X 6 a-ioexce.ads
+18K13*IO_Exceptions 30e22 17|1w82
+X 7 a-stream.ads
+36K13*Streams 87e16 17|1r59 2r58 13r41 20r19
+X 8 a-ststio.ads
+39K21*Stream_IO 223e26 17|1w67 2r66 13r49 20r27
+42P9*Stream_Access(7|39R9) 17|13r80 21r12
+44P9*File_Type 17|13r59 20r37
+46n23*In_File{46E9} 17|15r20
+73U14*Open 17|15s7
+79U14*Close 17|103s5
+89V13*End_Of_File{boolean} 17|59s33
+91V13*Stream{42P9} 17|16s15 53s13
+X 10 a-textio.ads
+49K13*Text_IO 471e16 17|1w10 2r9
+X 13 a-uncdea.ads
+20u15*Unchecked_Deallocation 17|3w10 10r27
+X 14 arbre_optimal.ads
+4K9*Arbre_Optimal 38e18 17|1w40 2r39
+6P14*Arbre 17|135r5
+8A8*T_Int(integer)<integer><integer> 17|133r23 140r13
+9P14*T_Int_access(8A8) 17|19r84 133r5 134r4
+21U19*Libere_T_Int 17|144s5 145s5
+24V18*Construit_Abr_Optimal{6P14} 17|141s10
+28U19*Parcourir_Abr_Optimal 17|142s5
+29U23*Affiche 17|143s5
+X 17 main.adb
+4U11*main 4b11 147l5 147t9
+6A8 T_Float(float)<integer><integer> 7r33 10r51 28r30 29r30
+7P8 T_Float_access(6A8) 10r59 28r9 29r9
+9i1 n{integer} 133r32 133r37 138r40
+10U11 Free[13|20] 129s5 130s5
+13U11 Open_Fichier 13b11 13<24 13<70 13>95 17l7 17t19 52s5
+13p24 Fichier{8|44P9} 15m12 16r22
+13p70 Flux{8|42P9} 16m7
+13a95 Nom_Fichier{string} 15r28
+19U13 Mise_En_Place_Optimal 19b13 19>35 19>60 19<76 19<97 131l7 131t28 138s5
+19a35 Nom_Fichier{string} 52r31
+19i60 n{integer} 27r18 28r41 28r46 29r41 29r46 40r17 41r19 45r17 59r21 106r17
+19p76 R{14|9P14} 42r9 50r7 126r9
+19i97 NBELEM{integer} 38m5 59r11 84r11 85r21 86m9 86r19 97r9 98r19 99m7 99r17
+. 112r17 113r19
+20p5 Fichier{8|44P9} 52m18 52r18 53r20 59r45 103m11 103r11
+21p5 Flux{8|42P9} 52m26 52r26 53m5 60r22
+22e5 data_read{character} 60m27 60r27 62r10 64r13 66r13 68r13 70r13 72r13
+. 74r13 76r13 78r13 80r13
+23i5 data_value{integer} 63m7 65m7 67m7 69m7 71m7 73m7 75m7 77m7 79m7 81m7
+. 91r44
+24b5 add{boolean} 61m7 89m7 91r8
+25i5 data_sum{integer} 82r13 84r26 87m9 91m22 91r32 95r8 97r24
+26f5 S{float} 37m5 85m9 85r14 98m7 98r12 107r18
+27a5 P(float) 47m7 84m9 85r19 97m7 98r17 107m7 107r13 116r26
+28p5 C{7P8} 48r7 120r16 120r25 121r23 121r32 125r9 129m10 129r10
+29p5 W{7P8} 49r7 116r9 116r17 125r17 130m10 130r10
+30i5 j{integer} 114m9 116r13 116r21 116r28 118r12 119r25 120r29 121r36 125r13
+. 125r21 126r13
+31f5 Cmin{float} 117m9 120r34 121m15 125r24
+32i5 m{integer} 36m5 118m9 122m15 126r18
+40i9 i{integer} 42r11
+41i11 j{integer} 42r13
+45i9 j{integer} 47r9 48r9 48r11 49r9 49r11 50r9 50r11 50r15
+106i9 l{integer} 107r9 107r15
+112i9 l{integer} 113r26 114r15
+113i11 i{integer} 114r13 116r11 116r19 119r19 120r18 121r25 125r11 125r19
+. 126r11
+119i13 k{integer} 120r20 120r27 121r27 121r34 122r20
+132i1 I{integer} 138m45 140r22 141r34
+133p1 R{14|9P14} 138m43 138r43 141r38 144m18 144r18
+134p1 T{14|9P14} 140m5 142m29 142r29 143r13 145m18 145r18
+135p1 A{14|6P14} 141m5 142r27 143r16
+

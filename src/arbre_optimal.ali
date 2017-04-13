@@ -1,4 +1,4 @@
-V "GNAT Lib v5"
+V "GNAT Lib v6"
 P ZX
 
 RN
@@ -10,10 +10,11 @@ RV NO_RECURSION
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_UNCHECKED_DEALLOCATION
 RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U arbre_optimal%b	arbre_optimal.adb	722c63b9 NE OO PK
+U arbre_optimal%b	arbre_optimal.adb	192c1564 NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -22,6 +23,7 @@ W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W ada.unchecked_deallocation%s
 W system%s		system.ads		system.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
 W system.concat_3%s	s-conca3.adb		s-conca3.ali
 W system.concat_5%s	s-conca5.adb		s-conca5.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
@@ -40,40 +42,41 @@ W system.soft_links%s	s-soflin.adb		s-soflin.ali
 W system.standard_library%s  s-stalib.adb	s-stalib.ali
 
 D ada.ads		20070406091342 3ffc8e18 ada%s
-D a-except.ads		20140730140058 5250cb69 ada.exceptions%s
-D a-finali.ads		20140611123707 69f99942 ada.finalization%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-finali.ads		20151020095656 bf4f806b ada.finalization%s
 D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
 D a-ststio.ads		20120709130952 c3455b31 ada.streams.stream_io%s
-D a-tags.ads		20140730140058 dc4d0634 ada.tags%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
-D arbre_optimal.ads	20170413161232 413fb145 arbre_optimal%s
-D arbre_optimal.adb	20170413161334 cf2aab6c arbre_optimal%b
-D interfac.ads		20141120112812 6033a23f interfaces%s
+D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
+D arbre_optimal.adb	20170413220431 a42addb1 arbre_optimal%b
+D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D system.ads		20141031112219 1d274481 system%s
+D system.ads		20151123113124 6326c08a system%s
+D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-conca3.ads		20140225151544 0b705ca5 system.concat_3%s
 D s-conca5.ads		20140225151544 875e432e system.concat_5%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
 D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
-D s-finmas.ads		20140225151139 814daec4 system.finalization_masters%s
+D s-finmas.ads		20151016130316 7811a767 system.finalization_masters%s
 D s-finroo.ads		20120426095924 4ff27390 system.finalization_root%s
 D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
 D s-memory.ads		20140225151139 597d6634 system.memory%s
 D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
-D s-pooglo.ads		20110804083314 542f33d0 system.pool_global%s
-D s-soflin.ads		20140801100131 aa763b52 system.soft_links%s
+D s-pooglo.ads		20151118103153 ede33ef8 system.pool_global%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
 D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
-D s-stalib.ads		20150220094550 fa0a3617 system.standard_library%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
 D s-stalib.adb		20140225151139 f2fe2716 system.standard_library%b
 D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
 D s-stopoo.ads		20131010103753 b16154c2 system.storage_pools%s
-D s-stposu.ads		20140718101241 97a6219c system.storage_pools.subpools%s
+D s-stposu.ads		20151020120548 97a6219c system.storage_pools.subpools%s
 D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
@@ -87,62 +90,62 @@ X 7 a-ststio.ads
 39K21*Stream_IO 223e26 13|1w18 1r45 14|7w18 7r45
 X 9 a-textio.ads
 49K13*Text_IO 471e16 14|2w10 2r27
-242U14*Put 14|48s7 50s9 54s9
-263U14*Put_Line 14|73s7 74s7 76s9 78s9
+242U14*Put 14|23s7 49s7 51s9 55s9 88s3
+263U14*Put_Line 14|74s7 75s7 77s9 79s9 90s3
 X 12 a-uncdea.ads
 20u15*Unchecked_Deallocation 14|3w10 15r27 16r29
 X 13 arbre_optimal.ads
-4K9*Arbre_Optimal 33E14 38l5 38e18 14|8b14 119l5 119t18
+4K9*Arbre_Optimal 33E14 38l5 38e18 14|8b14 122l5 122t18
 6P14*Arbre 13r21 18r50 19r42 22r38 24r94 28r48 29r59 36c14 14|12r17 13r17
-. 16r59 20r45 21r9 30r39 46r34 69r51 84r86 85r7 97r38
+. 16r59 20r45 21r9 31r39 47r34 70r51 85r86 86r7 100r38
 7A14*Fils(integer)<integer>
 8A8*T_Int(integer)<integer><integer> 9r37 14|15r51
-9P14*T_Int_access(8A8) 21r41 24r73 28r66 29r38 14|15r57 61r42 69r30 84r65
-. 97r56
-11R14*Arbre_Optimal 16e19 20r40 14|41r35
-13p17*A{6P14} 14|43m25
+9P14*T_Int_access(8A8) 21r41 24r73 28r66 29r38 14|15r57 62r42 70r30 85r65
+. 100r56
+11R14*Arbre_Optimal 16e19 20r40 14|42r35
+13p17*A{6P14} 14|44m25
 15i17*Nb_Total_Elements{natural}
-18V18*creer_arbre{6P14} 18>30 14|20b14 27l9 27t20 87s8
-18i30 I{integer} 14|20b26 23r17
-19U19*Libere_Arbre 19=32 14|30b15 33s9 36s9 39l9 39t21 43s7
-19p32 A{6P14} 14|30b28 32r11 33r22 35r11 36r22 38m12
-20U19*Libere 20=26 14|41b15 44l9 44t15
-20r26 AbrO{11R14} 14|41b22 43m20 43r20
-21U19*Libere_T_Int 21=32 14|61b19 64l7 64t19
-21p32 T{9P14} 14|61b33 63m10
-22U19*Affiche_Arbre 22>33 14|46b15 51s9 55s9 58l9 58t22
-22p33 A{6P14} 14|46b29 48r25 49r10 51r23 53r10 55r23
-24V18*Construit_Abr_Optimal{6P14} 24>40 24>53 24>66 14|84b10 89s20 92s19
-. 95l5 95t26
-24i40 i{integer} 14|84b32 87r22 88r6 88r12 89r42 89r47 91r8 92r43
-24i53 j{integer} 14|84b45 87r24 88r14 89r49 91r10 91r13 92r45 92r48
-24p66 R{9P14} 14|84b58 87r20 88r10 89r45 89r54 91r6 92r41 92r50
-28U19*Parcourir_Abr_Optimal 28>41 28=55 14|97b11 109s3 113s3 116l5 116t26
-28p41 A{6P14} 14|97b33 100r6 101r7 103r6 104r7 107r4 108r5 108r19 109r25
-. 111r4 112r5 112r19 113r25
-28p55 T{9P14} 14|97b45 101r5 104r5 108r3 109m38 112r3 113m37
-29U23*Affiche 29>31 29>52 14|69b15 80l9 80t16
-29p31 T{9P14} 14|69b23 74r54 75r19 76r38 76r68 78r38 78r40 78r77 78r79
-29p52 A{6P14} 14|69b44 73r56
+18V18*creer_arbre{6P14} 18>30 14|20b14 28l9 28t20 89s8
+18i30 I{integer} 14|20b26 23r39 24r17
+19U19*Libere_Arbre 19=32 14|31b15 34s9 37s9 40l9 40t21 44s7
+19p32 A{6P14} 14|31b28 33r11 34r22 36r11 37r22 39m12
+20U19*Libere 20=26 14|42b15 45l9 45t15
+20r26 AbrO{11R14} 14|42b22 44m20 44r20
+21U19*Libere_T_Int 21=32 14|62b19 65l7 65t19
+21p32 T{9P14} 14|62b33 64m10
+22U19*Affiche_Arbre 22>33 14|47b15 52s9 56s9 59l9 59t22
+22p33 A{6P14} 14|47b29 49r25 50r10 52r23 54r10 56r23
+24V18*Construit_Abr_Optimal{6P14} 24>40 24>53 24>66 14|85b10 92s20 95s19
+. 98l5 98t26
+24i40 i{integer} 14|85b32 88r30 89r22 91r6 91r13 92r42 92r47 94r8 95r43
+24i53 j{integer} 14|85b45 88r59 89r24 91r15 92r49 94r10 94r13 95r45 95r48
+24p66 R{9P14} 14|85b58 89r20 91r11 92r45 92r54 94r6 95r41 95r50
+28U19*Parcourir_Abr_Optimal 28>41 28=55 14|100b11 112s3 116s3 119l5 119t26
+28p41 A{6P14} 14|100b33 103r6 104r7 106r6 107r7 110r4 111r5 111r19 112r25
+. 114r4 115r5 115r19 116r25
+28p55 T{9P14} 14|100b45 104r5 107r5 111r3 112m38 115r3 116m37
+29U23*Affiche 29>31 29>52 14|70b15 81l9 81t16
+29p31 T{9P14} 14|70b23 75r54 76r19 77r38 77r68 79r38 79r40 79r77 79r79
+29p52 A{6P14} 14|70b44 74r56
 33R14 Noeud 36r30 14|10c8 14e13 16r53 21r20
 X 14 arbre_optimal.adb
-11i5*valeur{integer} 23m9 48r27 73r58 101r9 104r9 108r7 108r32 112r7 112r31
-12p5*filsgauche{13|6P14} 24m9 32r13 33m24 53r12 55r25 89m7 100r8 107r6 108r21
-. 109r27
-13p5*filsdroit{13|6P14} 25m9 35r13 36m24 49r12 51r25 92m7 103r8 111r6 112r21
-. 113r27
-15U11 Free[12|20] 63s5
-16U13 Free[12|20] 38s7
-21p7 A{13|6P14} 23r7 24r7 25r7 26r14
-70i7 i{integer} 72m7
-75i11 i{integer} 76r40 76r70
-85p3 A{13|6P14} 87m3 89r5 92r5 94r10
+11i5*valeur{integer} 24m9 49r27 74r58 104r9 107r9 111r7 111r32 115r7 115r31
+12p5*filsgauche{13|6P14} 25m9 33r13 34m24 54r12 56r25 92m7 103r8 110r6 111r21
+. 112r27
+13p5*filsdroit{13|6P14} 26m9 36r13 37m24 50r12 52r25 95m7 106r8 114r6 115r21
+. 116r27
+15U11 Free[12|20] 64s5
+16U13 Free[12|20] 39s7
+21p7 A{13|6P14} 24r7 25r7 26r7 27r14
+71i7 i{integer} 73m7
+76i11 i{integer} 77r40 77r70
+86p3 A{13|6P14} 89m3 92r5 95r5 97r10
 X 17 system.ads
 67M9*Address
-X 26 s-memory.ads
+X 27 s-memory.ads
 53V13*Alloc{17|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
 76V13*Realloc{17|67M9} 105i<c,__gnat_realloc>22
-X 32 s-stalib.adb
+X 33 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
 

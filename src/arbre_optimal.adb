@@ -88,7 +88,7 @@ begin
   Put("I : " & Integer'Image(i) & " J : " & Integer'Image(j) & "  ");
   A := creer_arbre(R(i,j));
   Put_Line("");
-  if(i < R(i,j)-1) then
+  if(i <= R(i,j)-1) then
     A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
   end if;
   if(R(i,j)<j) then
