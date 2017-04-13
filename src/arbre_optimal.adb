@@ -20,6 +20,7 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
     function creer_arbre(I: Integer) return Arbre is       --Cree un Arbre
       A:Arbre:=new Noeud;
     begin
+      Put("valeur : " & Integer'Image(I));
       A.valeur:=I;
       A.filsgauche:=NULL;
       A.filsdroit:=NULL;
@@ -84,7 +85,9 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
 function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int_access) return Arbre is
   A : Arbre ;
 begin
+  Put("I : " & Integer'Image(i) & " J : " & Integer'Image(j) & "  ");
   A := creer_arbre(R(i,j));
+  Put_Line("");
   if(i < R(i,j)-1) then
     A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
   end if;

@@ -1,32 +1,30 @@
-CC=cc
+CC=gnatmake
 LATEXC=pdflatex
 DOCC=doxygen
 CFLAGS=-g -Wall 
 
 REFDIR=.
-SRCDIR=$(REFDIR)/src
+SRCDIR=src
 BINDIR=$(REFDIR)/bin
 DOCDIR=$(REFDIR)/doc
 REPORTDIR=$(REFDIR)/rapport
 
 LATEXSOURCE=$(wildcard $(REPORTDIR)/*.tex)
-CSOURCE=$(wildcard $(SRCDIR)/compileBST.c)
+CSOURCE=$(wildcard $(SRCDIR)/main.adb)
 PDF=$(LATEXSOURCE:.tex=.pdf)
 
 
-all: binary report doc 
-
-
-$(BINDIR)/compileBST: $(CSOURCE)
-	$(CC) $(CFLAGS)  $^ -o $@
+all: compileBST
 
 %.pdf: $(LATEXSOURCE)
-	$(LATEXC) -output-directory $(REPORTDIR) $^ 
+	$(LATEXC) -ou	tput-directory $(REPORTDIR) $^ 
 
 $(DOCDIR)/index.html: $(SRCDIR)/Doxyfile $(CSOURCE) 
 	$(DOCC) $(SRCDIR)/Doxyfile
 
-binary: $(BINDIR)/compileBST
+binary:	src/main.adb
+	gnatmake src/main.adb -o bin/compileBST
+		
 
 report: $(PDF) 
 
