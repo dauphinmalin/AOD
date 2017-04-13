@@ -12,7 +12,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		41a4b441 NE OO SU IL
+U main%b		main.adb		37d233f8 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -40,7 +40,7 @@ D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D arbre_optimal.ads	20170413105853 85d5fdfa arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170413105823 c7d0de22 main%b
+D main.adb		20170413113312 b1a6599b main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -87,8 +87,6 @@ X 13 arbre_optimal.ads
 6P14*Arbre 16|130r5
 8A8*T_Int(integer)<integer><integer> 16|16r84 128r5 129r5
 22V18*Construit_Abr_Optimal{6P14} 16|134s10
-24U19*Parcourir_Abr_Optimal 16|135s5
-25U23*Affiche 16|136s5
 X 16 main.adb
 4U11*main 4b11 138l5 138t9
 7i1 n{integer} 128r14 128r21 129r14 133r40 134r34
@@ -127,6 +125,6 @@ X 16 main.adb
 . 123r11
 116i13 k{integer} 117r20 117r27 118r27 118r34 119r20
 128a1 R{13|8A8} 133m43 134r38
-129a1 T{13|8A8} 135m29 135r29 136r13
-130p1 A{13|6P14} 134m5 135r27 136r16
+129a1 T{13|8A8}
+130p1 A{13|6P14} 134m5
 
