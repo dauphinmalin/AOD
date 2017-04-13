@@ -88,11 +88,11 @@ begin
   Put("I : " & Integer'Image(i) & " J : " & Integer'Image(j) & "  ");
   A := creer_arbre(R(i,j));
   Put_Line("");
-  if(i < R(i,j)-1) then
-    A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
+  if(i < R(i,j)) then
+    A.filsgauche:= Construit_Abr_Optimal(i, R(i,j),R);
   end if;
-  if(R(i,j)<j) then
-    A.filsdroit:= Construit_Abr_Optimal(R(i,j),j,R);
+  if(R(i,j)+1<j) then
+    A.filsdroit:= Construit_Abr_Optimal(R(i,j)+1,j,R);
   end if;
   return A;
 end Construit_Abr_Optimal;

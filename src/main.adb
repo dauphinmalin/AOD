@@ -37,7 +37,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     S := 0.0;
     NBELEM := 0;
     --Put("N=");Put(n);
-    for i in 1..n-1 loop
+    for i in 0..n-1 loop
       for j in 0..n-1 loop
         R(i,j):=-1;
       end loop;
@@ -123,7 +123,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
             end if;
         end loop;
         C(i,j):=W(i,j)+Cmin;
-        R(i,j):= m;
+        R(i,j):= m-1;
       end loop;
     end loop;
     Free(C);

@@ -18,7 +18,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		2a7c4c57 NE OO SU IL
+U main%b		main.adb		86e6153b NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -49,7 +49,7 @@ D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170413220729 99b8345a main%b
+D main.adb		20170413223126 35226d36 main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s

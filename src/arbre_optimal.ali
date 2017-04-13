@@ -14,7 +14,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U arbre_optimal%b	arbre_optimal.adb	192c1564 NE OO PK
+U arbre_optimal%b	arbre_optimal.adb	b6d0652d NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -54,7 +54,7 @@ D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
-D arbre_optimal.adb	20170413220903 a42addb1 arbre_optimal%b
+D arbre_optimal.adb	20170413223158 0bd6adf8 arbre_optimal%b
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
 D system.ads		20151123113124 6326c08a system%s
@@ -117,9 +117,9 @@ X 13 arbre_optimal.ads
 22p33 A{6P14} 14|47b29 49r25 50r10 52r23 54r10 56r23
 24V18*Construit_Abr_Optimal{6P14} 24>40 24>53 24>66 14|85b10 92s20 95s19
 . 98l5 98t26
-24i40 i{integer} 14|85b32 88r30 89r22 91r6 91r13 92r42 92r47 94r8 95r43
-24i53 j{integer} 14|85b45 88r59 89r24 91r15 92r49 94r10 94r13 95r45 95r48
-24p66 R{9P14} 14|85b58 89r20 91r11 92r45 92r54 94r6 95r41 95r50
+24i40 i{integer} 14|85b32 88r30 89r22 91r6 91r12 92r42 92r47 94r8 95r43
+24i53 j{integer} 14|85b45 88r59 89r24 91r14 92r49 94r10 94r15 95r45 95r50
+24p66 R{9P14} 14|85b58 89r20 91r10 92r45 92r52 94r6 95r41 95r52
 28U19*Parcourir_Abr_Optimal 28>41 28=55 14|100b11 112s3 116s3 119l5 119t26
 28p41 A{6P14} 14|100b33 103r6 104r7 106r6 107r7 110r4 111r5 111r19 112r25
 . 114r4 115r5 115r19 116r25
