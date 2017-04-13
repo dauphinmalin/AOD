@@ -1,10 +1,13 @@
 with Ada.Text_IO, Ada.Integer_Text_Io, arbre_optimal, Ada.Streams.Stream_IO, Ada.IO_Exceptions, Ada.Command_line;
 use Ada.Text_IO, Ada.Integer_Text_Io, arbre_optimal, Ada.Streams.Stream_IO, Ada.Command_line;
-
+with Ada.Unchecked_Deallocation;
 procedure main is
 
+  type T_Float is array(Integer range <>,Integer range <>) of Float;
+  type T_Float_access is access T_Float;
 
 n : Integer:= Integer'Value(Argument(1)); --entrée de (0 à n)
+procedure Free is new Ada.Unchecked_Deallocation (T_Float,T_Float_access);
 
 
 procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out Stream_Access; Nom_Fichier: in String ) is
@@ -13,7 +16,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
       Flux := Stream(Fichier);
   end Open_fichier;
 
-  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
+  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int_access) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
     Fichier : Ada.Streams.Stream_IO.File_Type;
     Flux : Stream_Access;
     data_read : Character;
@@ -22,8 +25,8 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     data_sum : Integer:=0;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
     P : array(0..n-1) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
-    C : array(0..n-1,0..n-1) of Float ; -- C(i,j) = cout de l arbre T(i,j)
-    W : array(0..n-1,0..n-1) of Float ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
+    C : T_Float_access:= new T_Float(0..n-1,0..n-1) ; -- C(i,j) = cout de l arbre T(i,j)
+    W : T_Float_access:= new T_Float(0..n-1,0..n-1) ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
     j : Integer;
     Cmin : Float; -- Cmin
     m : Integer; -- valeur de k minimisant C(i,k-1)+C(k,j)
@@ -123,10 +126,12 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
         R(i,j):= m;
       end loop;
     end loop;
+    Free(C);
+    Free(W);
   end Mise_En_Place_Optimal;
 
-R : T_Int(0..n-1,0..n-1); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
-T : T_Int(0..n-1,0..1);
+R : T_Int_access := new T_Int(0..n-1,0..n-1); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
+T :T_Int_access:= new T_Int(0..n-1,0..1);
 A : Arbre;
 begin
 
@@ -134,5 +139,7 @@ begin
     A := Construit_Abr_Optimal(0,n-1,R);
     Parcourir_Abr_Optimal(A,T);
     Affiche(T, A);
+    Libere_T_Int(R);
+    Libere_T_Int(T);
 
 end main;
