@@ -18,7 +18,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		db71f23f NE OO SU IL
+U main%b		main.adb		2a7c4c57 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -49,7 +49,7 @@ D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170413220230 68b58a32 main%b
+D main.adb		20170413220729 99b8345a main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -107,7 +107,7 @@ X 17 main.adb
 4U11*main 4b11 147l5 147t9
 6A8 T_Float(float)<integer><integer> 7r33 10r51 28r30 29r30
 7P8 T_Float_access(6A8) 10r59 28r9 29r9
-9i1 n{integer} 133r32 133r37 138r40
+9i1 n{integer} 133r32 133r39 138r40
 10U11 Free[13|20] 129s5 130s5
 13U11 Open_Fichier 13b11 13<24 13<70 13>95 17l7 17t19 52s5
 13p24 Fichier{8|44P9} 15m12 16r22
@@ -115,7 +115,7 @@ X 17 main.adb
 13a95 Nom_Fichier{string} 15r28
 19U13 Mise_En_Place_Optimal 19b13 19>35 19>60 19<76 19<97 131l7 131t28 138s5
 19a35 Nom_Fichier{string} 52r31
-19i60 n{integer} 27r18 28r41 28r46 29r41 29r46 40r17 41r19 45r17 59r21 106r17
+19i60 n{integer} 27r18 28r41 28r48 29r41 29r48 40r17 41r19 45r17 59r21 106r17
 19p76 R{14|9P14} 42r9 50r7 126r9
 19i97 NBELEM{integer} 38m5 59r11 84r11 85r21 86m9 86r19 97r9 98r19 99m7 99r17
 . 112r17 113r19
@@ -139,7 +139,7 @@ X 17 main.adb
 41i11 j{integer} 42r13
 45i9 j{integer} 47r9 48r9 48r11 49r9 49r11 50r9 50r11 50r15
 106i9 l{integer} 107r9 107r15
-112i9 l{integer} 113r26 114r15
+112i9 l{integer} 113r28 114r15
 113i11 i{integer} 114r13 116r11 116r19 119r19 120r18 121r25 125r11 125r19
 . 126r11
 119i13 k{integer} 120r20 120r27 121r27 121r34 122r20
