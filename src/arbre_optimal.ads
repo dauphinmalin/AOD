@@ -22,7 +22,7 @@ package Arbre_Optimal is
 	function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int) return Arbre;
 
 	procedure Parcourir_Abr_Optimal(A : in Arbre; T : in out T_Int ) ;
-	    procedure Affiche(T : in T_Int; N : in Integer; A : in Arbre) ;
+	    procedure Affiche(T : in T_Int; A : in Arbre) ;
 private
 
 	-- type Noeud prive: a definir dans le body du package, AbrOptimal.adb

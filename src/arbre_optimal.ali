@@ -14,7 +14,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U arbre_optimal%b	arbre_optimal.adb	1085a8bc NE OO PK
+U arbre_optimal%b	arbre_optimal.adb	7d3a953c NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -30,7 +30,7 @@ W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 
-U arbre_optimal%s	arbre_optimal.ads	2c335b0c EE OO PK
+U arbre_optimal%s	arbre_optimal.ads	4690a6cb EE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
@@ -52,8 +52,8 @@ D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
-D arbre_optimal.ads	20170413102613 ef76003d arbre_optimal%s
-D arbre_optimal.adb	20170413105138 03cad111 arbre_optimal%b
+D arbre_optimal.ads	20170413105853 85d5fdfa arbre_optimal%s
+D arbre_optimal.adb	20170413105915 04d61156 arbre_optimal%b
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
 D system.ads		20151123113124 6326c08a system%s
@@ -89,13 +89,13 @@ X 7 a-ststio.ads
 X 9 a-textio.ads
 49K13*Text_IO 471e16 14|2w10 2r27
 242U14*Put 14|46s7 48s9 52s9
-263U14*Put_Line 14|62s7 63s7 65s9
+263U14*Put_Line 14|62s7 63s7 65s9 67s9
 X 12 a-uncdea.ads
 20u15*Unchecked_Deallocation 14|3w10 16r29
 X 13 arbre_optimal.ads
 4K9*Arbre_Optimal 29E14 34l5 34e18 14|8b14 108l5 108t18
-6P14*Arbre 12r21 17r50 18r42 20r38 22r87 24r48 25r68 32c14 14|12r17 13r17
-. 16r59 18r45 19r9 28r39 44r34 58r60 73r79 74r7 86r38
+6P14*Arbre 12r21 17r50 18r42 20r38 22r87 24r48 25r52 32c14 14|12r17 13r17
+. 16r59 18r45 19r9 28r39 44r34 58r44 73r79 74r7 86r38
 7A14*Fils(integer)<integer>
 8A8*T_Int(integer)<integer><integer> 22r73 24r66 25r38 14|58r30 73r65 86r56
 10R14*Arbre_Optimal 15e19 19r40 14|39r35
@@ -118,10 +118,9 @@ X 13 arbre_optimal.ads
 24p41 A{6P14} 14|86b33 89r6 90r7 92r6 93r7 96r4 97r5 97r19 98r25 100r4 101r5
 . 101r19 102r25
 24a55 T{8A8} 14|86b45 90m5 93m5 97m3 98m38 101m3 102m37
-25U23*Affiche 25>31 25>45 25>61 14|58b15 69l9 69t16
-25a31 T{8A8} 14|58b23 64r16 65r38 65r68
-25i45 N{integer} 14|58b37 63r54
-25p61 A{6P14} 14|58b53 62r56
+25U23*Affiche 25>31 25>45 14|58b15 69l9 69t16
+25a31 T{8A8} 14|58b23 63r54 64r19 65r38 65r68 67r38 67r40 67r77 67r79
+25p45 A{6P14} 14|58b37 62r56
 29R14 Noeud 32r30 14|10c8 14e13 16r53 19r20
 X 14 arbre_optimal.adb
 11i5*valeur{integer} 21m9 46r27 62r58 90r9 93r9 97r7 97r32 101r7 101r31

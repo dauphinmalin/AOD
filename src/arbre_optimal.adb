@@ -55,16 +55,16 @@ package body Arbre_Optimal is
 
     end Affiche_Arbre;
 
-    procedure Affiche(T : in T_Int; N : in Integer; A : in Arbre) is
+    procedure Affiche(T : in T_Int; A : in Arbre) is
       i : Integer;
     begin
       i := 1;
       Put_Line("static int BSTroot = " & Integer'Image(A.valeur) & ";");
-      Put_Line("static int BSTtree[" & Integer'Image(N) & "][2] = {");
-      for i in T'Range loop
+      Put_Line("static int BSTtree[" & Integer'Image(T'Length) & "][2] = {");
+      for i in 0..T'Length-2 loop
         Put_Line("{" & Integer'Image(T(i,0)) & "," & Integer'Image(T(i,1)) & "}, ");
       end loop;
-      --Put_Line("{" & Integer'Image(T(N,0)) & "," & Integer'Image(T(N,1)) & "} };");
+        Put_Line("{" & Integer'Image(T(T'Length-1,0)) & "," & Integer'Image(T(T'Length-1,1)) & "} };");
 
     end Affiche;
 

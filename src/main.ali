@@ -12,7 +12,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		068a8132 NE OO SU IL
+U main%b		main.adb		41a4b441 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -37,10 +37,10 @@ D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
-D arbre_optimal.ads	20170413102613 ef76003d arbre_optimal%s
+D arbre_optimal.ads	20170413105853 85d5fdfa arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170413105212 ea5d1696 main%b
+D main.adb		20170413105823 c7d0de22 main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -91,7 +91,7 @@ X 13 arbre_optimal.ads
 25U23*Affiche 16|136s5
 X 16 main.adb
 4U11*main 4b11 138l5 138t9
-7i1 n{integer} 128r14 128r21 129r14 133r40 134r34 136r15
+7i1 n{integer} 128r14 128r21 129r14 133r40 134r34
 10U11 Open_Fichier 10b11 10<24 10<70 10>95 14l7 14t19 49s5
 10p24 Fichier{8|44P9} 12m12 13r22
 10p70 Flux{8|42P9} 13m7
@@ -128,5 +128,5 @@ X 16 main.adb
 116i13 k{integer} 117r20 117r27 118r27 118r34 119r20
 128a1 R{13|8A8} 133m43 134r38
 129a1 T{13|8A8} 135m29 135r29 136r13
-130p1 A{13|6P14} 134m5 135r27 136r18
+130p1 A{13|6P14} 134m5 135r27 136r16
 

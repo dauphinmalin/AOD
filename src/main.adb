@@ -133,6 +133,6 @@ begin
     Mise_En_Place_Optimal(Argument(2), n, R);
     A := Construit_Abr_Optimal(0,n-1,R);
     Parcourir_Abr_Optimal(A,T);
-    Affiche(T,n, A);
+    Affiche(T, A);
 
 end main;
