@@ -55,6 +55,14 @@ package body Arbre_Optimal is
 
     end Affiche_Arbre;
 
+    procedure Affiche(A: in Arbre; N : in Integer) is
+    begin
+      Put_Line("static int BSTroot = " & Integer'Image(A.valeur) & ";");
+      Put_Line("static int BSTtree[" & Integer'Image(N) "][2] = {");
+
+      Put(" };")
+
+
 
 function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int) return Arbre is
   A : Arbre ;

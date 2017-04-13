@@ -13,7 +13,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
       Flux := Stream(Fichier);
   end Open_fichier;
 
-  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
+  procedure Mise_En_Place_Optimal(Nom_Fichier : in String; n : in Integer; R : out T_Int; Cout : out float) is --Le but est de construire R tel que R(i,j) donne la racine optimal pour l'arbre T(i,j)
     Fichier : Ada.Streams.Stream_IO.File_Type;
     Flux : Stream_Access;
     data_read : Character;
@@ -124,13 +124,16 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
       end loop;
     end loop;
     Put(Float'Image(S));
+    Cout := C(0,4);
   end Mise_En_Place_Optimal;
 
 R : T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
 A : Arbre;
+Cout : Float;
 begin
 
-  Mise_En_Place_Optimal(Argument(2), n, R);
+  Mise_En_Place_Optimal(Argument(2), n, R, Cout);
+  Put_Line("Cout" & Float'Image(Cout));
   A := Construit_Abr_Optimal(0,n,R);
   Affiche_Arbre(A);
 
