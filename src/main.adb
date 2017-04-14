@@ -39,9 +39,9 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Float,T_Float_access);
     S := 0.0;
     NBELEM := 0;
     for i in 0..n loop
-      P(j):=0.0;
-      C(j,j):=0.0;
-      W(j,j):=0.0;
+      P(i):=0.0;
+      C(i,i):=0.0;
+      W(i,i):=0.0;
       for j in 0..n loop
         if (i /= j) then
           R(i,j):=-1;
