@@ -46,7 +46,7 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Float,T_Float_access);
         if (i /= j) then
           R(i,j):=-1;
         end if;
-        else then
+        if (i = j) then
           R(i,j):=i;
         end if;
       end loop;

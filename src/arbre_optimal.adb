@@ -12,7 +12,7 @@ package body Arbre_Optimal is
     filsgauche: Arbre;
     filsdroit : Arbre;
   end record;
-procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
+  procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
   procedure Free is new Ada.Unchecked_Deallocation (Noeud,Arbre);
 
 
@@ -59,10 +59,10 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
     end Affiche_Arbre;
 
 
-	procedure Libere_T_Int( T:in out T_Int_access) is
-  begin
-    Free(T);
-  end Libere_T_Int;
+  	procedure Libere_T_Int( T:in out T_Int_access) is
+    begin
+      Free(T);
+    end Libere_T_Int;
 
 
 
@@ -82,41 +82,41 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
 
 
 
-function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int_access) return Arbre is
-  A : Arbre ;
-begin
+  function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int_access) return Arbre is
+    A : Arbre ;
+  begin
 
-  A := creer_arbre(R(i,j)-1);
+    A := creer_arbre(R(i,j)-1);
 
-  if(i < R(i,j)-1) then
-    A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
+    if(i < R(i,j)-1) then
+      A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
+    end if;
+    if(R(i,j)<j) then
+      A.filsdroit:= Construit_Abr_Optimal(R(i,j),j,R);
+    end if;
+    return A;
+  end Construit_Abr_Optimal;
+
+  procedure Parcourir_Abr_Optimal(A:in Arbre; T : in out T_Int_access) is    -- cette procédure recursive permet de réecrire l'arbre dans un programme.
+  begin
+
+    if(A.filsgauche = NULL) then
+      T(A.valeur,0):=-1;
+    end if;
+    if(A.filsdroit = NULL) then
+      T(A.valeur,1):=-1;
+    end if;
+
+  if A.filsgauche/=NULL then
+    T(A.valeur,0):= A.filsgauche.valeur;
+    Parcourir_Abr_Optimal(A.filsgauche,T);
   end if;
-  if(R(i,j)<j) then
-    A.filsdroit:= Construit_Abr_Optimal(R(i,j),j,R);
-  end if;
-  return A;
-end Construit_Abr_Optimal;
-
-procedure Parcourir_Abr_Optimal(A:in Arbre; T : in out T_Int_access) is    -- cette procédure recursive permet de réecrire l'arbre dans un programme.
-begin
-
-  if(A.filsgauche = NULL) then
-    T(A.valeur,0):=-1;
-  end if;
-  if(A.filsdroit = NULL) then
-    T(A.valeur,1):=-1;
+  if A.filsdroit/=NULL then
+    T(A.valeur,1):= A.filsdroit.valeur;
+    Parcourir_Abr_Optimal(A.filsdroit,T);
   end if;
 
-if A.filsgauche/=NULL then
-  T(A.valeur,0):= A.filsgauche.valeur;
-  Parcourir_Abr_Optimal(A.filsgauche,T);
-end if;
-if A.filsdroit/=NULL then
-  T(A.valeur,1):= A.filsdroit.valeur;
-  Parcourir_Abr_Optimal(A.filsdroit,T);
-end if;
-
-end Parcourir_Abr_Optimal;
+  end Parcourir_Abr_Optimal;
 
 
 end Arbre_Optimal;
