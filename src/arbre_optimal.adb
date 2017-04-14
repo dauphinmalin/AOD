@@ -72,7 +72,7 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
     begin
       i := 1;
       Put_Line("static int BSTroot = " & Integer'Image(A.valeur) & ";");
-      Put_Line("static int BSTtree[" & Integer'Image(T'Length-1) & "][2] = {");
+      Put_Line("static int BSTtree[" & Integer'Image(T'Length-1) & "][2] = {"); 
       for i in 0..T'Length-3 loop
         Put_Line("{" & Integer'Image(T(i,0)) & "," & Integer'Image(T(i,1)) & "}, ");
       end loop;

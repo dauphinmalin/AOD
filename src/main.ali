@@ -18,7 +18,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		57ade196 NE OO SU IL
+U main%b		main.adb		881e4bdb NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -49,7 +49,7 @@ D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170414061931 e469999b main%b
+D main.adb		20170414063401 3bda33d6 main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -88,7 +88,7 @@ X 8 a-ststio.ads
 46n23*In_File{46E9} 17|15r20
 73U14*Open 17|15s7
 79U14*Close 17|103s5
-89V13*End_Of_File{boolean} 17|59s31
+89V13*End_Of_File{boolean} 17|59s33
 91V13*Stream{42P9} 17|16s15 53s13
 X 10 a-textio.ads
 49K13*Text_IO 471e16 17|1w10 2r9
@@ -119,7 +119,7 @@ X 17 main.adb
 19p76 R{14|9P14} 42r9 50r7 126r9
 19i97 NBELEM{integer} 38m5 59r11 84r11 85r21 86m9 86r19 97r9 98r19 99m7 99r17
 . 112r17 113r19
-20p5 Fichier{8|44P9} 52m18 52r18 53r20 59r43 103m11 103r11
+20p5 Fichier{8|44P9} 52m18 52r18 53r20 59r45 103m11 103r11
 21p5 Flux{8|42P9} 52m26 52r26 53m5 60r22
 22e5 data_read{character} 60m27 60r27 62r10 64r13 66r13 68r13 70r13 72r13
 . 74r13 76r13 78r13 80r13

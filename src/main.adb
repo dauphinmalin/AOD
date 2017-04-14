@@ -56,7 +56,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     --Put("Lecture des donnees: ");
 
     --while not End_Of_File(Fichier) or I <= n loop -- on lit le fichier
-    while NBELEM <= n and not End_Of_File(Fichier) loop
+    while NBELEM <= n-1 and not End_Of_File(Fichier) loop
       Character'Read(Flux,data_read);
       add:=True;
       if(data_read='0') then
