@@ -72,11 +72,11 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Int,T_Int_access);
     begin
       i := 1;
       Put_Line("static int BSTroot = " & Integer'Image(A.valeur) & ";");
-      Put_Line("static int BSTtree[" & Integer'Image(T'Length) & "][2] = {");
-      for i in 0..T'Length-2 loop
+      Put_Line("static int BSTtree[" & Integer'Image(T'Length-1) & "][2] = {"); 
+      for i in 0..T'Length-3 loop
         Put_Line("{" & Integer'Image(T(i,0)) & "," & Integer'Image(T(i,1)) & "}, ");
       end loop;
-        Put_Line("{" & Integer'Image(T(T'Length-1,0)) & "," & Integer'Image(T(T'Length-1,1)) & "} };");
+        Put_Line("{" & Integer'Image(T(T'Length-2,0)) & "," & Integer'Image(T(T'Length-2,1)) & "} };");
 
     end Affiche;
 
@@ -86,7 +86,7 @@ function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int_access) re
   A : Arbre ;
 begin
   Put("I : " & Integer'Image(i) & " J : " & Integer'Image(j) & "  ");
-  A := creer_arbre(R(i,j));
+  A := creer_arbre(R(i,j)-1);
   Put_Line("");
   if(i < R(i,j)-1) then
     A.filsgauche:= Construit_Abr_Optimal(i, R(i,j)-1,R);
