@@ -1,4 +1,4 @@
-CC=gnatmake
+
 LATEXC=pdflatex
 DOCC=doxygen
 CFLAGS=-g -Wall 
@@ -14,7 +14,7 @@ CSOURCE=$(wildcard $(SRCDIR)/main.adb)
 PDF=$(LATEXSOURCE:.tex=.pdf)
 
 
-all: compileBST
+all: binary
 
 %.pdf: $(LATEXSOURCE)
 	$(LATEXC) -ou	tput-directory $(REPORTDIR) $^ 
@@ -22,8 +22,9 @@ all: compileBST
 $(DOCDIR)/index.html: $(SRCDIR)/Doxyfile $(CSOURCE) 
 	$(DOCC) $(SRCDIR)/Doxyfile
 
-binary:	src/main.adb
-	gnatmake src/main.adb -o bin/compileBST
+binary:	src/main.adb 
+	gnatmake src/main.adb -o bin/ComputeABROpt
+	rm arbre_optimal.ali arbre_optimal.o main.o main.ali
 		
 
 report: $(PDF) 
