@@ -9,9 +9,7 @@ package Arbre_Optimal is
 	type T_Int_access is access T_Int;
 
 	type Arbre_Optimal is record
-		-- l'arbre optimal proprement dit
 		A : Arbre;
-		-- autres infos utiles: nb total de caracteres lus, ...
 		Nb_Total_Elements : Natural;
 	end record;
 
@@ -20,18 +18,13 @@ package Arbre_Optimal is
 	procedure Libere(AbrO : in out Arbre_Optimal);
 	procedure Libere_T_Int(T:in out T_Int_access);
 	procedure Affiche_Arbre(A:in Arbre);
-
 	function Construit_Abr_Optimal(i : Integer; j : Integer; R : in T_Int_access) return Arbre;
-
-
-
 	procedure Parcourir_Abr_Optimal(A : in Arbre; T : in out T_Int_access ) ;
-	    procedure Affiche(T : in T_Int_access; A : in Arbre) ;
+	procedure Affiche(T : in T_Int_access; A : in Arbre) ;
+
 private
-
-	-- type Noeud prive: a definir dans le body du package, AbrOptimal.adb
+	-- type Noeud prive: a definir dans le body du package, abr_optimal.adb
 	type Noeud;
-
 
 	type Arbre is Access Noeud;
 
