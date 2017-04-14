@@ -112,7 +112,7 @@ procedure Free is new Ada.Unchecked_Deallocation (T_Float,T_Float_access);
         j:= i+l;
 
         W(i,j):=W(i,j-1)+P(j);
-        Cmin := 2000000000000.0; --PB ? initialisation
+        Cmin := 2000000000000.0;
         m:=j;
         for k in (i+1)..j loop
             if(C(i,k-1)+C(k,j) < Cmin) then
