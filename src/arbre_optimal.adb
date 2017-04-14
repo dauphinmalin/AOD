@@ -100,12 +100,12 @@ package body Arbre_Optimal is
   procedure Parcourir_Abr_Optimal(A:in Arbre; T : in out T_Int_access) is    -- cette procédure recursive permet de réecrire l'arbre dans un programme.
   begin
 
-    if(A.filsgauche = NULL) then
-      T(A.valeur,0):=-1;
-    end if;
-    if(A.filsdroit = NULL) then
-      T(A.valeur,1):=-1;
-    end if;
+  if(A.filsgauche = NULL) then
+    T(A.valeur,0):=-1;
+  end if;
+  if(A.filsdroit = NULL) then
+    T(A.valeur,1):=-1;
+  end if;
 
   if A.filsgauche/=NULL then
     T(A.valeur,0):= A.filsgauche.valeur;
