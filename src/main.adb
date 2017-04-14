@@ -122,7 +122,6 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
 
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
-
 I : Integer;
 R : T_Int_access:=new T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
 T :T_Int_access;
