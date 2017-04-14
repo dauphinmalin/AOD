@@ -18,7 +18,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U main%b		main.adb		86e6153b NE OO SU IL
+U main%b		main.adb		57ade196 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -49,7 +49,7 @@ D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D arbre_optimal.ads	20170413215452 413fb145 arbre_optimal%s
 D interfac.ads		20151118101227 4be8ce1b interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D main.adb		20170413223126 35226d36 main%b
+D main.adb		20170414061931 e469999b main%b
 D system.ads		20151123113124 6326c08a system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -88,7 +88,7 @@ X 8 a-ststio.ads
 46n23*In_File{46E9} 17|15r20
 73U14*Open 17|15s7
 79U14*Close 17|103s5
-89V13*End_Of_File{boolean} 17|59s33
+89V13*End_Of_File{boolean} 17|59s31
 91V13*Stream{42P9} 17|16s15 53s13
 X 10 a-textio.ads
 49K13*Text_IO 471e16 17|1w10 2r9
@@ -107,7 +107,7 @@ X 17 main.adb
 4U11*main 4b11 147l5 147t9
 6A8 T_Float(float)<integer><integer> 7r33 10r51 28r30 29r30
 7P8 T_Float_access(6A8) 10r59 28r9 29r9
-9i1 n{integer} 133r32 133r39 138r40
+9i1 n{integer} 133r32 133r37 138r40
 10U11 Free[13|20] 129s5 130s5
 13U11 Open_Fichier 13b11 13<24 13<70 13>95 17l7 17t19 52s5
 13p24 Fichier{8|44P9} 15m12 16r22
@@ -115,11 +115,11 @@ X 17 main.adb
 13a95 Nom_Fichier{string} 15r28
 19U13 Mise_En_Place_Optimal 19b13 19>35 19>60 19<76 19<97 131l7 131t28 138s5
 19a35 Nom_Fichier{string} 52r31
-19i60 n{integer} 27r18 28r41 28r48 29r41 29r48 40r17 41r19 45r17 59r21 106r17
+19i60 n{integer} 27r18 28r41 28r46 29r41 29r46 40r17 41r19 45r17 59r21 106r17
 19p76 R{14|9P14} 42r9 50r7 126r9
 19i97 NBELEM{integer} 38m5 59r11 84r11 85r21 86m9 86r19 97r9 98r19 99m7 99r17
 . 112r17 113r19
-20p5 Fichier{8|44P9} 52m18 52r18 53r20 59r45 103m11 103r11
+20p5 Fichier{8|44P9} 52m18 52r18 53r20 59r43 103m11 103r11
 21p5 Flux{8|42P9} 52m26 52r26 53m5 60r22
 22e5 data_read{character} 60m27 60r27 62r10 64r13 66r13 68r13 70r13 72r13
 . 74r13 76r13 78r13 80r13
@@ -139,12 +139,12 @@ X 17 main.adb
 41i11 j{integer} 42r13
 45i9 j{integer} 47r9 48r9 48r11 49r9 49r11 50r9 50r11 50r15
 106i9 l{integer} 107r9 107r15
-112i9 l{integer} 113r28 114r15
+112i9 l{integer} 113r26 114r15
 113i11 i{integer} 114r13 116r11 116r19 119r19 120r18 121r25 125r11 125r19
 . 126r11
 119i13 k{integer} 120r20 120r27 121r27 121r34 122r20
 132i1 I{integer} 138m45 140r22 141r34
-133p1 R{14|9P14} 138m43 138r43 141r38 144m18 144r18
+133p1 R{14|9P14} 138m43 138r43 141r36 144m18 144r18
 134p1 T{14|9P14} 140m5 142m29 142r29 143r13 145m18 145r18
 135p1 A{14|6P14} 141m5 142r27 143r16
 
