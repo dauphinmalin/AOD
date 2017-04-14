@@ -10,7 +10,7 @@ n : Integer:= Integer'Value(Argument(1)); --entrée de (0 à n)
 procedure Free is new Ada.Unchecked_Deallocation (T_Float,T_Float_access);
 
 
-procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out Stream_Access; Nom_Fichier: in String ) is
+  procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out Stream_Access; Nom_Fichier: in String ) is
   begin
       Open(Fichier,In_File,Nom_Fichier);
       Flux := Stream(Fichier);
@@ -24,31 +24,36 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     add : Boolean;
     data_sum : Integer:=0;
     S : Float; --sommes de tous les entiers contenus dans le fichier (sommes des proba)
-    P : array(0..n) of Float; -- ce tableau sert à faire un premier enregistrement des characters présents dans le fichier
+    P : array(0..n) of Float; -- Proba
     C : T_Float_access:= new T_Float(0..n,0..n) ; -- C(i,j) = cout de l arbre T(i,j)
     W : T_Float_access:= new T_Float(0..n,0..n) ; -- W(i,j) = somme des p(k) pour k allant de i à j-1
     j : Integer;
     Cmin : Float; -- Cmin
     m : Integer; -- valeur de k minimisant C(i,k-1)+C(k,j)
-    -- Valeur de l'entier (valeur sur un noeud)
 
   begin
+    ------------------------------------------------------------------------------
+    --initialisation
+    ------------------------------------------------------------------------------
     m := -1;
     S := 0.0;
     NBELEM := 0;
-    --Put("N=");Put(n);
     for i in 0..n loop
-      for j in 0..n loop
-        R(i,j):=-1;
-      end loop;
-    end loop;
-    for j in 0..n loop
-
       P(j):=0.0;
       C(j,j):=0.0;
       W(j,j):=0.0;
-      R(j,j):=j;
+      for j in 0..n loop
+        if (i /= j) then
+          R(i,j):=-1;
+        end if;
+        else then
+          R(i,j):=i;
+        end if;
+      end loop;
     end loop;
+    --------------------------------------------------------------------------------
+    --LectureFichier
+    --------------------------------------------------------------------------------
     Open_Fichier(Fichier,Flux,Nom_Fichier);
     Flux := Stream(Fichier);
 
@@ -95,6 +100,9 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     end if;
 
     Close(Fichier);
+    --------------------------------------------------------------------------------
+    --Calcul des Tableaux
+    --------------------------------------------------------------------------------
 
     for l in 0..n loop
       P(l):=P(l)/S;
@@ -121,6 +129,7 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
   end Mise_En_Place_Optimal;
 
 -------------------------------------------------------------------------------------------------
+--MAIN
 -------------------------------------------------------------------------------------------------
 I : Integer;
 R : T_Int_access:=new T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
@@ -129,7 +138,6 @@ A : Arbre;
 begin
 
     Mise_En_Place_Optimal(Argument(2), n, R,I);
-
     T:= new T_Int(0..I,0..1);
     A := Construit_Abr_Optimal(0,I,R);
     Parcourir_Abr_Optimal(A,T);
