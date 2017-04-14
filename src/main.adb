@@ -52,9 +52,6 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     Open_Fichier(Fichier,Flux,Nom_Fichier);
     Flux := Stream(Fichier);
 
-
-    --Put("Lecture des donnees: ");
-
     --while not End_Of_File(Fichier) or I <= n loop -- on lit le fichier
     while NBELEM <= n-1 and not End_Of_File(Fichier) loop
       Character'Read(Flux,data_read);
@@ -80,7 +77,6 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
       elsif(data_read='9') then
       data_value:=9;
     else if data_sum/=0 then
-        --Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
         P(NBELEM):=Float(data_sum);
         S := S + (P(NBELEM));
         NBELEM := NBELEM + 1;
@@ -93,22 +89,16 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
 
     end loop;
     if data_sum/=0 then
-      --Put_Line("valeur ajoutée :" & Integer'Image(data_sum));
       P(NBELEM):=Float(data_sum);
       S := S + (P(NBELEM));
       NBELEM := NBELEM + 1;
     end if;
 
-    --Put_Line("TEST2");
     Close(Fichier);
-    --Put_Line("fermeture du fichier");
 
     for l in 0..n loop
       P(l):=P(l)/S;
-      --Put("PROBA");
-      --Put(Float'Image(P(l)));
     end loop;
-    --Put_Line("");
     for l in 1..NBELEM loop
       for i in 0..NBELEM-l loop
         j:= i+l;
@@ -129,6 +119,10 @@ procedure Open_Fichier(Fichier :out Ada.Streams.Stream_IO.File_Type; Flux: out S
     Free(C);
     Free(W);
   end Mise_En_Place_Optimal;
+
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+
 I : Integer;
 R : T_Int_access:=new T_Int(0..n,0..n); --Contient en R(i,j) la racine optimal pour l'arbre T(i,j)
 T :T_Int_access;
